@@ -10,6 +10,7 @@ export default function Navbar() {
   const navItems = [
     { label: "Catálogo", href: "/", icon: "🎨" },
     { label: "Documentación", href: "/docs", icon: "📚" },
+    { label: "Demo", href: "/demo", icon: "🎯" },
     {
       label: "API",
       href: "https://api-svgstorm-production.up.railway.app/api/icons",

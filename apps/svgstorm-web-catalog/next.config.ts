@@ -13,10 +13,12 @@ const nextConfig: NextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
+  /* Server External Packages */
+  serverExternalPackages: [],
+
   /* Experimental Features */
   experimental: {
     optimizePackageImports: ["framer-motion"],
-    serverComponentsExternalPackages: [],
   },
 
   /* TypeScript and ESLint */
