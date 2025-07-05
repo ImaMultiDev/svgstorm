@@ -2,7 +2,7 @@ import { IconData } from "@/interfaces";
 
 const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_URL ||
-  "https://api-svgstorm-production.up.railway.app";
+  "https://overflowing-adaptation-production.up.railway.app";
 
 interface ApiResponse<T> {
   success: boolean;

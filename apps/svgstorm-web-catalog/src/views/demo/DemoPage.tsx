@@ -12,7 +12,7 @@ import { NavigationSection } from "./sections/NavigationSection";
 export default function DemoPage() {
   const apiBaseUrl =
     process.env.NEXT_PUBLIC_API_BASE_URL ||
-    "https://api-svgstorm-production.up.railway.app";
+    "https://overflowing-adaptation-production.up.railway.app";
 
   return (
     <SVGStormProvider apiBaseUrl={apiBaseUrl}>

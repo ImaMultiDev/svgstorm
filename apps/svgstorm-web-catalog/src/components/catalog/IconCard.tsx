@@ -25,7 +25,7 @@ export default function IconCard({
       setIsLoading(true);
       try {
         const response = await fetch(
-          `https://api-svgstorm-production.up.railway.app/api/icons/${icon.name}`
+          `https://overflowing-adaptation-production.up.railway.app/api/icons/${icon.name}`
         );
         const data = await response.json();
         if (data.success) {

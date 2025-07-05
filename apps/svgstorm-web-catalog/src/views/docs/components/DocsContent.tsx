@@ -31,7 +31,7 @@ function MyComponent() {
 
 function CustomIconComponent() {
   const { data, loading, error } = useIcon('sun', {
-    apiBaseUrl: 'https://api-svgstorm-production.up.railway.app',
+    apiBaseUrl: 'https://overflowing-adaptation-production.up.railway.app',
     cacheTime: 10 * 60 * 1000 // 10 minutos
   })
 
@@ -688,7 +688,7 @@ interface UseIconResult {
                     code={`// Configurar caché personalizado
 const { data, loading, error } = useIcon('sun', {
   cacheTime: 15 * 60 * 1000, // 15 minutos
-  apiBaseUrl: 'https://mi-api-personalizada.com'
+  apiBaseUrl: 'https://overflowing-adaptation-production.up.railway.app'
 })`}
                     language="tsx"
                     title="Configuración personalizada"

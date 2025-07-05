@@ -13,7 +13,7 @@ export function PracticalExamplesSection() {
     setTimeout(() => setIsButtonLoading(false), 2000);
   };
 
-  const apiBaseUrl = "https://api-svgstorm-production.up.railway.app";
+  const apiBaseUrl = "https://overflowing-adaptation-production.up.railway.app";
 
   return (
     <section

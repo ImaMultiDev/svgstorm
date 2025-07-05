@@ -81,7 +81,7 @@ import { SVGStormProvider } from "@/contexts/SVGStormContext";
 
 export default function App({ children }: { children: ReactNode }) {
   const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 
-    "https://api-svgstorm-production.up.railway.app";
+    "https://overflowing-adaptation-production.up.railway.app";
 
   return (
     <SVGStormProvider apiBaseUrl={apiBaseUrl}>
@@ -194,7 +194,7 @@ function MyComponent() {
             <pre>
               <code className="text-green-400">
                 {`// .env.local
-NEXT_PUBLIC_API_BASE_URL=https://api-svgstorm-production.up.railway.app
+NEXT_PUBLIC_API_BASE_URL=https://overflowing-adaptation-production.up.railway.app
 
 // next.config.js
 module.exports = {

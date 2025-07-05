@@ -49,7 +49,7 @@ export default function DocsHero() {
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
             <motion.a
-              href="https://api-svgstorm-production.up.railway.app/api/icons"
+              href="https://overflowing-adaptation-production.up.railway.app/api/icons"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}

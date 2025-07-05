@@ -13,7 +13,7 @@ export default function Navbar() {
     { label: "Demo", href: "/demo", icon: "🎯" },
     {
       label: "API",
-      href: "https://api-svgstorm-production.up.railway.app/api/icons",
+      href: "https://overflowing-adaptation-production.up.railway.app/api/icons",
       icon: "🔗",
       external: true,
     },

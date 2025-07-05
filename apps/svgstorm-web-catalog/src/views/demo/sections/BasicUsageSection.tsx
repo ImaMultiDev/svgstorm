@@ -20,7 +20,7 @@ function MyComponent() {
         name="home" 
         size={24}
         color="#3B82F6"
-        apiBaseUrl="https://api-svgstorm-production.up.railway.app"
+        apiBaseUrl="https://overflowing-adaptation-production.up.railway.app"
       />
     </div>
   );
@@ -31,7 +31,7 @@ function MyComponent() {
             name="home"
             size={24}
             color="#3B82F6"
-            apiBaseUrl="https://api-svgstorm-production.up.railway.app"
+            apiBaseUrl="https://overflowing-adaptation-production.up.railway.app"
           />
           <span className="text-slate-700">Icono Home</span>
         </div>
@@ -44,7 +44,7 @@ function MyComponent() {
 
 function MyComponent() {
   const { iconSvg, loading, error } = useIcon("home", {
-    apiBaseUrl: "https://api-svgstorm-production.up.railway.app"
+    apiBaseUrl: "https://overflowing-adaptation-production.up.railway.app"
   });
 
   if (loading) return <div>Cargando...</div>;
