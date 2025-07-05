@@ -1,0 +1,29 @@
+{
+  "name": "svgstorm-monorepo",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:api": "pnpm --filter api-svgstorm dev",
+    "dev:web": "pnpm --filter svgstorm-web-catalog dev",
+    "dev:client": "pnpm --filter svgstorm-client dev",
+    "build": "turbo run build",
+    "build:api": "pnpm --filter api-svgstorm build",
+    "build:web": "pnpm --filter svgstorm-web-catalog build",
+    "build:client": "pnpm --filter svgstorm-client build",
+    "dev": "turbo run dev",
+    "start": "turbo run start",
+    "lint": "turbo run lint",
+    "type-check": "turbo run type-check",
+    "clean": "turbo run clean",
+    "db:generate": "pnpm --filter api-svgstorm exec prisma generate",
+    "db:push": "pnpm --filter api-svgstorm exec prisma db push",
+    "db:migrate": "pnpm --filter api-svgstorm exec prisma migrate dev",
+    "db:studio": "pnpm --filter api-svgstorm exec prisma studio"
+  },
+  "devDependencies": {
+    "turbo": "^2.5.4"
+  }
+}
