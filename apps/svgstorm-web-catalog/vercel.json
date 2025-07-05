@@ -1,14 +1,7 @@
 {
   "version": 2,
   "name": "svgstorm-web-catalog",
-  "env": {
-    "NEXT_PUBLIC_API_BASE_URL": "@svgstorm_api_url"
-  },
-  "build": {
-    "env": {
-      "NEXT_PUBLIC_API_BASE_URL": "@svgstorm_api_url"
-    }
-  },
+
   "functions": {
     "app/api/**/*.ts": {
       "maxDuration": 30
