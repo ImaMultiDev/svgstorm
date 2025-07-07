@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { IconData } from "@/interfaces";
+import { Icon } from "@/components/common/SVGStormIcon";
 
 interface IconWithSVG extends IconData {
   svg_code: string;
@@ -100,7 +101,7 @@ export default function IconModal({ icon, isOpen, onClose }: IconModalProps) {
                       dangerouslySetInnerHTML={{ __html: iconDetails.svg_code }}
                     />
                   ) : (
-                    <span className="text-lg">🎨</span>
+                    <Icon name="palette" size={32} color="white" />
                   )}
                 </div>
                 <div>
@@ -115,19 +116,7 @@ export default function IconModal({ icon, isOpen, onClose }: IconModalProps) {
                 onClick={onClose}
                 className="p-2 hover:bg-white/20 rounded-lg transition-colors duration-200"
               >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
+                <Icon name="close" size={24} color="white" />
               </button>
             </div>
           </div>
@@ -189,36 +178,12 @@ export default function IconModal({ icon, isOpen, onClose }: IconModalProps) {
                       >
                         {copied === "react" ? (
                           <>
-                            <svg
-                              className="w-4 h-4"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M5 13l4 4L19 7"
-                              />
-                            </svg>
+                            <Icon name="check-circle" size={16} color="white" />
                             <span>¡Copiado!</span>
                           </>
                         ) : (
                           <>
-                            <svg
-                              className="w-4 h-4"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
-                              />
-                            </svg>
+                            <Icon name="copy" size={16} color="white" />
                             <span>Copiar</span>
                           </>
                         )}
@@ -239,36 +204,12 @@ export default function IconModal({ icon, isOpen, onClose }: IconModalProps) {
                       >
                         {copied === "svg" ? (
                           <>
-                            <svg
-                              className="w-4 h-4"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M5 13l4 4L19 7"
-                              />
-                            </svg>
+                            <Icon name="check-circle" size={16} color="white" />
                             <span>¡Copiado!</span>
                           </>
                         ) : (
                           <>
-                            <svg
-                              className="w-4 h-4"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
-                              />
-                            </svg>
+                            <Icon name="copy" size={16} color="white" />
                             <span>Copiar</span>
                           </>
                         )}

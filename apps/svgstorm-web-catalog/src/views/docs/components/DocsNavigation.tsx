@@ -1,6 +1,7 @@
 "use client";
 
 import { DocsTab } from "@/interfaces";
+import { Icon } from "svgstorm-client";
 
 interface DocsNavigationProps {
   tabs: DocsTab[];
@@ -13,6 +14,8 @@ export default function DocsNavigation({
   activeTab,
   setActiveTab,
 }: DocsNavigationProps) {
+  const apiBaseUrl = "https://overflowing-adaptation-production.up.railway.app";
+
   return (
     <div className="bg-white/95 backdrop-blur-sm border-b border-slate-200/50 sticky top-0 z-50 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -27,7 +30,12 @@ export default function DocsNavigation({
                   : "text-slate-600 hover:text-slate-900 hover:bg-slate-100/80 border border-slate-200/50"
               }`}
             >
-              <span className="text-lg">{tab.icon}</span>
+              <Icon
+                name={tab.icon}
+                size={18}
+                color={activeTab === tab.id ? "white" : "currentColor"}
+                apiBaseUrl={apiBaseUrl}
+              />
               <span className="font-semibold">{tab.label}</span>
               {activeTab === tab.id && (
                 <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { IconStats } from "@/interfaces";
+import { Icon } from "@/components/common/SVGStormIcon";
 
 interface StatsSectionProps {
   stats: IconStats;
@@ -12,7 +13,7 @@ export default function StatsSection({ stats }: StatsSectionProps) {
     {
       value: stats.totalIcons,
       label: "Iconos Únicos",
-      icon: "🎨",
+      iconName: "palette",
       gradient: "from-blue-500 to-cyan-500",
       bgGradient: "from-blue-50 to-cyan-50",
       delay: 0.2,
@@ -20,7 +21,7 @@ export default function StatsSection({ stats }: StatsSectionProps) {
     {
       value: stats.categories,
       label: "Categorías",
-      icon: "📁",
+      iconName: "folder",
       gradient: "from-purple-500 to-violet-500",
       bgGradient: "from-purple-50 to-violet-50",
       delay: 0.4,
@@ -28,7 +29,7 @@ export default function StatsSection({ stats }: StatsSectionProps) {
     {
       value: stats.tags,
       label: "Tags Únicos",
-      icon: "🏷️",
+      iconName: "tag",
       gradient: "from-emerald-500 to-green-500",
       bgGradient: "from-emerald-50 to-green-50",
       delay: 0.6,
@@ -78,9 +79,9 @@ export default function StatsSection({ stats }: StatsSectionProps) {
               <div className="relative">
                 <div className="flex items-center justify-center mb-6">
                   <div
-                    className={`w-16 h-16 bg-gradient-to-r ${item.gradient} rounded-2xl flex items-center justify-center text-2xl shadow-lg`}
+                    className={`w-16 h-16 bg-gradient-to-r ${item.gradient} rounded-2xl flex items-center justify-center shadow-lg`}
                   >
-                    {item.icon}
+                    <Icon name={item.iconName} size={32} color="white" />
                   </div>
                 </div>
 

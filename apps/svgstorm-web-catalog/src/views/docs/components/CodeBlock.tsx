@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { CodeBlockProps } from "@/interfaces";
+import { Icon } from "@/components/common/SVGStormIcon";
 
 export default function CodeBlock({ code, language, title }: CodeBlockProps) {
   const [copied, setCopied] = useState(false);
@@ -32,33 +33,13 @@ export default function CodeBlock({ code, language, title }: CodeBlockProps) {
           className="absolute top-4 right-4 p-3 bg-slate-800/80 hover:bg-slate-700/80 rounded-xl transition-all duration-200 z-10 border border-slate-600/50 hover:border-slate-500 group"
         >
           {copied ? (
-            <svg
-              className="w-5 h-5 text-green-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
+            <Icon name="check-circle" size={20} color="#4ade80" />
           ) : (
-            <svg
-              className="w-5 h-5 text-slate-400 group-hover:text-white transition-colors"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
-              />
-            </svg>
+            <Icon
+              name="copy"
+              size={20}
+              className="text-slate-400 group-hover:text-white transition-colors"
+            />
           )}
         </button>
 

@@ -1,6 +1,13 @@
 // Components
 export { Icon } from "./components/Icon";
 
+// Context & Provider
+export {
+  SVGStormProvider,
+  useSVGStormContext,
+  useSVGStormContextOptional,
+} from "./context/SVGStormContext";
+
 // Hooks
 export { useIcon } from "./hooks/useIcon";
 
@@ -10,4 +17,6 @@ export type {
   IconProps,
   UseIconOptions,
   UseIconResult,
+  SVGStormContextProps,
+  SVGStormProviderProps,
 } from "./types";

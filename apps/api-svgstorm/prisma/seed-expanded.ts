@@ -3742,6 +3742,264 @@ const expandedIcons = [
   <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/>
 </svg>`,
   },
+
+  // ICONOS ESPECÍFICOS PARA LA APLICACIÓN SVGSTORM
+  {
+    name: "lightning",
+    category: "Weather",
+    tags: ["lightning", "storm", "electricity", "power", "energy"],
+    description: "Icono de rayo/tormenta para logo SVGStorm",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"/>
+</svg>`,
+  },
+  {
+    name: "palette",
+    category: "Art & Design",
+    tags: ["palette", "colors", "art", "design", "paint"],
+    description: "Paleta de colores para diseño",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="13.5" cy="6.5" r=".5"/>
+  <circle cx="17.5" cy="10.5" r=".5"/>
+  <circle cx="8.5" cy="7.5" r=".5"/>
+  <circle cx="6.5" cy="12.5" r=".5"/>
+  <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/>
+</svg>`,
+  },
+  {
+    name: "search",
+    category: "Interface",
+    tags: ["search", "find", "magnifying", "glass", "look"],
+    description: "Icono de búsqueda/lupa",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="11" cy="11" r="8"/>
+  <path d="m21 21-4.35-4.35"/>
+</svg>`,
+  },
+  {
+    name: "documentation",
+    category: "Education",
+    tags: ["documentation", "docs", "book", "guide", "manual"],
+    description: "Icono de documentación",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+  <path d="M8 7h8"/>
+  <path d="M8 11h8"/>
+</svg>`,
+  },
+  {
+    name: "demo",
+    category: "Interface",
+    tags: ["demo", "play", "example", "showcase", "preview"],
+    description: "Icono de demo/presentación",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <polygon points="5,3 19,12 5,21 5,3"/>
+</svg>`,
+  },
+  {
+    name: "api",
+    category: "Technology",
+    tags: ["api", "connection", "link", "interface", "network"],
+    description: "Icono de API/conexión",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M8 3H5a2 2 0 0 0-2 2v3m18-5h-3m3 18v-3m-3-15h3m-18 0h3"/>
+  <circle cx="12" cy="12" r="3"/>
+  <path d="M12 1v6m0 6v6"/>
+  <path d="m5.3 8.7 4.4 4.4m4.6 0 4.4-4.4"/>
+  <path d="m19.7 8.7-4.4 4.4m-4.6 0L6.3 8.7"/>
+</svg>`,
+  },
+
+  // ICONOS ADICIONALES PARA REEMPLAZAR EMOJIS Y SVGs HARDCODEADOS
+  {
+    name: "folder",
+    category: "Interface",
+    tags: ["folder", "directory", "storage", "organize", "files"],
+    description: "Icono de carpeta para categorías",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2z"/>
+</svg>`,
+  },
+  {
+    name: "tag",
+    category: "Interface",
+    tags: ["tag", "label", "category", "mark", "badge"],
+    description: "Icono de etiqueta para tags",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+</svg>`,
+  },
+  {
+    name: "rocket",
+    category: "Interface",
+    tags: ["rocket", "launch", "start", "boost", "performance"],
+    description: "Icono de cohete para primeros pasos",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M4.5 16.5c-1.5 1.25-2 5 2-5 0 0 0 0 0 0l7.5-7.5L22 2l-1.5 7.5L13 17s0 0 0 0c-10-4-11.5-1.5-8.5 4.5"/>
+  <path d="M9 12l3 3"/>
+  <path d="M12 7l1 1"/>
+</svg>`,
+  },
+  {
+    name: "lightning-bolt",
+    category: "Weather",
+    tags: ["lightning", "bolt", "energy", "fast", "quick"],
+    description: "Icono de rayo pequeño para velocidad",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <polygon points="11,5 6,14 10,14 7,23 18,12 14,12 17,5"/>
+</svg>`,
+  },
+  {
+    name: "wrench",
+    category: "Tools",
+    tags: ["wrench", "tools", "settings", "configuration", "repair"],
+    description: "Icono de llave inglesa para configuración",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+</svg>`,
+  },
+  {
+    name: "image",
+    category: "Interface",
+    tags: ["image", "picture", "photo", "placeholder", "media"],
+    description: "Icono de imagen placeholder",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+  <circle cx="8.5" cy="8.5" r="1.5"/>
+  <path d="M21 15l-5-5L5 21"/>
+</svg>`,
+  },
+  {
+    name: "eye",
+    category: "Interface",
+    tags: ["eye", "view", "see", "preview", "watch"],
+    description: "Icono de ojo para visualizar",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+  <circle cx="12" cy="12" r="3"/>
+</svg>`,
+  },
+  {
+    name: "copy",
+    category: "Interface",
+    tags: ["copy", "clipboard", "duplicate", "clone", "paste"],
+    description: "Icono de copiar al portapapeles",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+</svg>`,
+  },
+  {
+    name: "close",
+    category: "Interface",
+    tags: ["close", "x", "cancel", "exit", "dismiss"],
+    description: "Icono de cerrar/X",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="18" y1="6" x2="6" y2="18"/>
+  <line x1="6" y1="6" x2="18" y2="18"/>
+</svg>`,
+  },
+  {
+    name: "check-circle",
+    category: "Interface",
+    tags: ["check", "success", "done", "complete", "verified"],
+    description: "Icono de verificación exitosa",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+  <polyline points="22,4 12,14.01 9,11.01"/>
+</svg>`,
+  },
+  {
+    name: "code-brackets",
+    category: "Technology",
+    tags: ["code", "brackets", "programming", "development", "syntax"],
+    description: "Icono de código con brackets",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <polyline points="16,18 22,12 16,6"/>
+  <polyline points="8,6 2,12 8,18"/>
+</svg>`,
+  },
+
+  // ICONOS ADICIONALES PARA DOCUMENTACIÓN
+  {
+    name: "package",
+    category: "Objects",
+    tags: ["package", "box", "delivery", "shipping", "installation"],
+    description: "Icono de paquete/instalación",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="m7.5 4.27 9 5.15"/>
+  <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/>
+  <path d="m3.3 7 8.7 5 8.7-5"/>
+  <path d="M12 22V12"/>
+</svg>`,
+  },
+  {
+    name: "clipboard",
+    category: "Office",
+    tags: ["clipboard", "copy", "paste", "list", "notes"],
+    description: "Icono de portapapeles/lista",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <rect width="8" height="4" x="8" y="2" rx="1" ry="1"/>
+  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+</svg>`,
+  },
+  {
+    name: "circle",
+    category: "Shapes",
+    tags: ["circle", "round", "shape", "dot", "point"],
+    description: "Icono de círculo",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="10"/>
+</svg>`,
+  },
+  {
+    name: "edit",
+    category: "Actions",
+    tags: ["edit", "pencil", "write", "modify", "change"],
+    description: "Icono de editar/escribir",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+  <path d="m15 5 4 4"/>
+</svg>`,
+  },
+  {
+    name: "globe",
+    category: "Communication",
+    tags: ["globe", "world", "earth", "global", "internet"],
+    description: "Icono de globo terráqueo/global",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="10"/>
+  <path d="m4.93 4.93 4.24 4.24"/>
+  <path d="m14.83 9.17 4.24-4.24"/>
+  <path d="m14.83 14.83 4.24 4.24"/>
+  <path d="m9.17 14.83-4.24 4.24"/>
+  <circle cx="12" cy="12" r="4"/>
+</svg>`,
+  },
+  {
+    name: "sparkles",
+    category: "Effects",
+    tags: ["sparkles", "magic", "stars", "shine", "special"],
+    description: "Icono de destellos/magia",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+  <path d="M5 3v4"/>
+  <path d="M19 17v4"/>
+  <path d="M3 5h4"/>
+  <path d="M17 19h4"/>
+</svg>`,
+  },
+  {
+    name: "info",
+    category: "Interface",
+    tags: ["info", "information", "help", "about", "details"],
+    description: "Icono de información",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="10"/>
+  <path d="m9 12 2 2 4-4"/>
+</svg>`,
+  },
 ];
 
 async function main() {

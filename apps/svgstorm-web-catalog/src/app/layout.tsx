@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
+import { SVGStormProvider } from "@/contexts/SVGStormContext";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -16,8 +17,10 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className="bg-gradient-to-br from-gray-50 to-blue-50/30 min-h-screen">
-        <Navbar />
-        <main className="min-h-screen">{children}</main>
+        <SVGStormProvider apiBaseUrl="https://overflowing-adaptation-production.up.railway.app">
+          <Navbar />
+          <main className="min-h-screen">{children}</main>
+        </SVGStormProvider>
       </body>
     </html>
   );

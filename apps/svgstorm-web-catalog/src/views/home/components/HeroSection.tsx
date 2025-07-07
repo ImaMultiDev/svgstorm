@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { Icon } from "@/components/common/SVGStormIcon";
 
 export default function HeroSection() {
   return (
@@ -63,19 +64,12 @@ export default function HeroSection() {
                   ?.scrollIntoView({ behavior: "smooth" })
               }
             >
-              <svg
-                className="w-5 h-5 mr-3 transition-transform group-hover:scale-110"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
+              <Icon
+                name="search"
+                size={20}
+                color="white"
+                className="mr-3 transition-transform group-hover:scale-110"
+              />
               Explorar Iconos
             </motion.button>
 
@@ -84,19 +78,12 @@ export default function HeroSection() {
                 href="/demo"
                 className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-xl font-semibold shadow-2xl hover:shadow-green-500/50 transition-all duration-300 hover:from-green-700 hover:to-emerald-700"
               >
-                <svg
-                  className="w-5 h-5 mr-3 transition-transform group-hover:scale-110"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                  />
-                </svg>
+                <Icon
+                  name="code"
+                  size={20}
+                  color="white"
+                  className="mr-3 transition-transform group-hover:scale-110"
+                />
                 Demo & Código
               </Link>
             </motion.div>
@@ -106,19 +93,12 @@ export default function HeroSection() {
                 href="/docs"
                 className="group inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-xl font-semibold border border-white/20 hover:bg-white/20 transition-all duration-300"
               >
-                <svg
-                  className="w-5 h-5 mr-3 transition-transform group-hover:rotate-12"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                  />
-                </svg>
+                <Icon
+                  name="documentation"
+                  size={20}
+                  color="white"
+                  className="mr-3 transition-transform group-hover:rotate-12"
+                />
                 Ver Docs
               </Link>
             </motion.div>

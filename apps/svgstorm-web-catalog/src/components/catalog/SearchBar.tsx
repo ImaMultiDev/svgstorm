@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Icon } from "@/components/common/SVGStormIcon";
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
@@ -40,26 +41,18 @@ export default function SearchBar({
         }`}
       >
         <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-          <motion.svg
-            className={`w-5 h-5 transition-colors duration-200 ${
+          <motion.div
+            className={`transition-colors duration-200 ${
               isFocused ? "text-blue-500" : "text-gray-400"
             }`}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
             animate={{
               scale: isFocused ? 1.1 : 1,
               rotate: isFocused ? 12 : 0,
             }}
             transition={{ duration: 0.2 }}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-            />
-          </motion.svg>
+            <Icon name="search" size={20} />
+          </motion.div>
         </div>
 
         <input
@@ -85,19 +78,7 @@ export default function SearchBar({
               onClick={handleClear}
               className="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-gray-600 transition-colors duration-200"
             >
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+              <Icon name="close" size={20} />
             </motion.button>
           )}
         </AnimatePresence>

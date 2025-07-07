@@ -20,10 +20,27 @@ export interface IconProps {
 export interface UseIconOptions {
   apiBaseUrl?: string;
   cacheTime?: number;
+  retryAttempts?: number;
+  retryDelay?: number;
 }
 
 export interface UseIconResult {
   data: IconData | null;
   loading: boolean;
   error: string | null;
+}
+
+export interface SVGStormContextProps {
+  apiBaseUrl: string;
+  cacheTime?: number;
+  retryAttempts?: number;
+  retryDelay?: number;
+}
+
+export interface SVGStormProviderProps {
+  children: React.ReactNode;
+  apiBaseUrl: string;
+  cacheTime?: number;
+  retryAttempts?: number;
+  retryDelay?: number;
 }
