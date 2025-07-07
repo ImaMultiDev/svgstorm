@@ -11,7 +11,7 @@ export default function SearchSection({ onSearch }: SearchSectionProps) {
   return (
     <div
       id="search-section"
-      className="sticky bg-gradient-to-r from-slate-100 via-white to-slate-100 border-b border-slate-200/50 top-0 z-40 shadow-lg"
+      className="sticky bg-gradient-to-r from-slate-100 via-white to-slate-100 border-b border-slate-200/50 top-0 z-60 shadow-lg"
     >
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-20">
@@ -29,11 +29,7 @@ export default function SearchSection({ onSearch }: SearchSectionProps) {
           <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-slate-800 to-purple-800 bg-clip-text text-transparent mb-2">
             Encuentra el Icono Perfecto
           </h2>
-          <p className="text-slate-600">
-            Busca entre miles de iconos por nombre, categoría o etiqueta
-          </p>
         </motion.div>
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

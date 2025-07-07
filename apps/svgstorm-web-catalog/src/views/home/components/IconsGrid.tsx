@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
+import { useState, useMemo, useEffect, useRef } from "react";
 import IconCard from "@/components/catalog/IconCard";
 import { IconData } from "@/interfaces";
 
@@ -15,6 +16,77 @@ export default function IconsGrid({
   onIconSelect,
   onSearch,
 }: IconsGridProps) {
+  const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
+  const [currentPage, setCurrentPage] = useState(1);
+  const iconsPerPage = 40;
+  const catalogRef = useRef<HTMLDivElement>(null);
+
+  // Calculate pagination
+  const totalPages = Math.ceil(filteredIcons.length / iconsPerPage);
+  const startIndex = (currentPage - 1) * iconsPerPage;
+  const endIndex = startIndex + iconsPerPage;
+  const currentIcons = useMemo(
+    () => filteredIcons.slice(startIndex, endIndex),
+    [filteredIcons, startIndex, endIndex]
+  );
+
+  // Reset page when filters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [filteredIcons]);
+
+  const handleViewChange = (mode: "grid" | "list") => {
+    setViewMode(mode);
+  };
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    // Scroll to catalog section - this solution works perfectly
+    if (catalogRef.current) {
+      catalogRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
+  // Generate page numbers for pagination
+  const getPageNumbers = () => {
+    const pages = [];
+    const maxPagesToShow = 5;
+
+    if (totalPages <= maxPagesToShow) {
+      for (let i = 1; i <= totalPages; i++) {
+        pages.push(i);
+      }
+    } else {
+      if (currentPage <= 3) {
+        pages.push(1, 2, 3, 4, "...", totalPages);
+      } else if (currentPage >= totalPages - 2) {
+        pages.push(
+          1,
+          "...",
+          totalPages - 3,
+          totalPages - 2,
+          totalPages - 1,
+          totalPages
+        );
+      } else {
+        pages.push(
+          1,
+          "...",
+          currentPage - 1,
+          currentPage,
+          currentPage + 1,
+          "...",
+          totalPages
+        );
+      }
+    }
+
+    return pages;
+  };
+
   return (
     <div className="relative bg-gradient-to-br from-slate-50 to-blue-50/30 py-16">
       {/* Background decorative elements */}
@@ -24,7 +96,10 @@ export default function IconsGrid({
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-12">
+        <div
+          ref={catalogRef}
+          className="flex flex-col lg:flex-row lg:items-center justify-between mb-12"
+        >
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -40,6 +115,13 @@ export default function IconsGrid({
                   ? "icono encontrado"
                   : "iconos encontrados"}
               </span>
+              {filteredIcons.length > iconsPerPage && (
+                <span className="text-sm text-slate-500 ml-2">
+                  (mostrando {startIndex + 1}-
+                  {Math.min(endIndex, filteredIcons.length)} de{" "}
+                  {filteredIcons.length})
+                </span>
+              )}
             </p>
           </motion.div>
 
@@ -52,7 +134,14 @@ export default function IconsGrid({
           >
             <span className="text-sm text-slate-600 font-medium">Vista:</span>
             <div className="flex items-center space-x-2 bg-white/80 backdrop-blur-sm rounded-xl p-1 border border-slate-200/50">
-              <button className="p-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg shadow-lg">
+              <button
+                onClick={() => handleViewChange("grid")}
+                className={`p-3 rounded-lg shadow-lg transition-all duration-200 ${
+                  viewMode === "grid"
+                    ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white"
+                    : "text-slate-500 hover:text-slate-700 hover:bg-slate-100"
+                }`}
+              >
                 <svg
                   className="w-5 h-5"
                   fill="none"
@@ -67,7 +156,14 @@ export default function IconsGrid({
                   />
                 </svg>
               </button>
-              <button className="p-3 text-slate-500 hover:text-slate-700 rounded-lg hover:bg-slate-100 transition-colors duration-200">
+              <button
+                onClick={() => handleViewChange("list")}
+                className={`p-3 rounded-lg shadow-lg transition-all duration-200 ${
+                  viewMode === "list"
+                    ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white"
+                    : "text-slate-500 hover:text-slate-700 hover:bg-slate-100"
+                }`}
+              >
                 <svg
                   className="w-5 h-5"
                   fill="none"
@@ -86,25 +182,34 @@ export default function IconsGrid({
           </motion.div>
         </div>
 
-        {/* Icons Grid */}
+        {/* Icons Grid/List */}
         <AnimatePresence mode="popLayout">
-          {filteredIcons.length > 0 ? (
+          {currentIcons.length > 0 ? (
             <motion.div
-              key="icons-grid"
+              key={`${viewMode}-${currentPage}`}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+              className={
+                viewMode === "grid"
+                  ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+                  : "flex flex-col space-y-4"
+              }
             >
-              {filteredIcons.map((icon, index) => (
+              {currentIcons.map((icon, index) => (
                 <motion.div
-                  key={icon.id}
+                  key={`${icon.id}-${viewMode}`}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.05, duration: 0.4 }}
                   layout
+                  className={viewMode === "list" ? "w-full" : ""}
                 >
-                  <IconCard icon={icon} onSelect={onIconSelect} />
+                  <IconCard
+                    icon={icon}
+                    onSelect={onIconSelect}
+                    viewMode={viewMode}
+                  />
                 </motion.div>
               ))}
             </motion.div>
@@ -185,6 +290,64 @@ export default function IconsGrid({
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* Pagination */}
+        {filteredIcons.length > iconsPerPage && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex justify-center items-center mt-16 space-x-2"
+          >
+            {/* Previous button */}
+            <button
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+              className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+                currentPage === 1
+                  ? "bg-slate-100 text-slate-400 cursor-not-allowed"
+                  : "bg-white text-slate-700 hover:bg-purple-50 hover:text-purple-700 border border-slate-200 hover:border-purple-300"
+              }`}
+            >
+              ← Anterior
+            </button>
+
+            {/* Page numbers */}
+            {getPageNumbers().map((pageNum, index) => (
+              <button
+                key={index}
+                onClick={() =>
+                  typeof pageNum === "number"
+                    ? handlePageChange(pageNum)
+                    : undefined
+                }
+                disabled={typeof pageNum !== "number"}
+                className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+                  pageNum === currentPage
+                    ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg"
+                    : typeof pageNum === "number"
+                    ? "bg-white text-slate-700 hover:bg-purple-50 hover:text-purple-700 border border-slate-200 hover:border-purple-300"
+                    : "bg-transparent text-slate-400 cursor-default"
+                }`}
+              >
+                {pageNum}
+              </button>
+            ))}
+
+            {/* Next button */}
+            <button
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+                currentPage === totalPages
+                  ? "bg-slate-100 text-slate-400 cursor-not-allowed"
+                  : "bg-white text-slate-700 hover:bg-purple-50 hover:text-purple-700 border border-slate-200 hover:border-purple-300"
+              }`}
+            >
+              Siguiente →
+            </button>
+          </motion.div>
+        )}
       </div>
     </div>
   );
