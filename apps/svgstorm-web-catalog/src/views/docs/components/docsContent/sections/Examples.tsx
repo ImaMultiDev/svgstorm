@@ -160,7 +160,7 @@ function Navigation() {
       <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-slate-200/50">
         <h2 className="text-4xl font-bold bg-gradient-to-r from-slate-900 to-purple-900 bg-clip-text text-transparent mb-8 flex items-center">
           <Icon
-            name="palette"
+            name="lightning-bolt"
             size={36}
             className="mr-3 text-indigo-600"
             apiBaseUrl={apiBaseUrl}
@@ -173,7 +173,7 @@ function Navigation() {
           <div>
             <h3 className="text-2xl font-semibold text-slate-800 mb-6 flex items-center">
               <Icon
-                name="circle"
+                name="number-1"
                 size={28}
                 className="mr-3 text-blue-600"
                 apiBaseUrl={apiBaseUrl}
@@ -195,9 +195,9 @@ function Navigation() {
           <div>
             <h3 className="text-2xl font-semibold text-slate-800 mb-6 flex items-center">
               <Icon
-                name="palette"
+                name="number-2"
                 size={28}
-                className="mr-3 text-purple-600"
+                className="mr-3 text-blue-600"
                 apiBaseUrl={apiBaseUrl}
               />
               Estilos y CSS Personalizado
@@ -215,7 +215,7 @@ function Navigation() {
             {/* Demo live de estilos */}
             <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-6 mt-6 border border-purple-200">
               <h4 className="font-semibold text-slate-900 mb-4">
-                🎨 Demo en Vivo - Estilos:
+                Demo en Vivo - Estilos:
               </h4>
               <div className="flex items-center space-x-6">
                 <div className="text-center">
@@ -263,9 +263,9 @@ function Navigation() {
           <div>
             <h3 className="text-2xl font-semibold text-slate-800 mb-6 flex items-center">
               <Icon
-                name="target"
+                name="number-3"
                 size={28}
-                className="mr-3 text-green-600"
+                className="mr-3 text-blue-600"
                 apiBaseUrl={apiBaseUrl}
               />
               Botones de Acción
@@ -282,7 +282,7 @@ function Navigation() {
             {/* Demo live de botones */}
             <div className="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl p-6 mt-6 border border-blue-200">
               <h4 className="font-semibold text-slate-900 mb-4">
-                ⚡ Demo en Vivo - Botones:
+                Demo en Vivo - Botones:
               </h4>
               <div className="flex flex-wrap gap-3">
                 <button className="flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
@@ -295,12 +295,7 @@ function Navigation() {
                   <span>Crear</span>
                 </button>
                 <button className="flex items-center space-x-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
-                  <Icon
-                    name="check"
-                    size={18}
-                    color="white"
-                    apiBaseUrl={apiBaseUrl}
-                  />
+                  <Icon name="save" size={18} apiBaseUrl={apiBaseUrl} />
                   <span>Guardar</span>
                 </button>
                 <button className="flex items-center space-x-2 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors">
@@ -313,12 +308,7 @@ function Navigation() {
                   <span>Cancelar</span>
                 </button>
                 <button className="flex items-center space-x-2 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors">
-                  <Icon
-                    name="edit"
-                    size={18}
-                    color="white"
-                    apiBaseUrl={apiBaseUrl}
-                  />
+                  <Icon name="edit" size={18} apiBaseUrl={apiBaseUrl} />
                   <span>Editar</span>
                 </button>
               </div>
@@ -329,9 +319,9 @@ function Navigation() {
           <div>
             <h3 className="text-2xl font-semibold text-slate-800 mb-6 flex items-center">
               <Icon
-                name="edit"
+                name="number-4"
                 size={28}
-                className="mr-3 text-slate-600"
+                className="mr-3 text-blue-600"
                 apiBaseUrl={apiBaseUrl}
               />
               Formularios con Iconos
@@ -348,7 +338,7 @@ function Navigation() {
             {/* Demo live de formulario */}
             <div className="bg-gradient-to-r from-slate-50 to-gray-50 rounded-xl p-6 mt-6 border border-slate-200">
               <h4 className="font-semibold text-slate-900 mb-4">
-                📝 Demo en Vivo - Formulario:
+                Demo en Vivo - Formulario:
               </h4>
               <form className="max-w-md space-y-4">
                 <div className="relative">
@@ -399,8 +389,14 @@ function Navigation() {
 
           {/* Navegación */}
           <div>
-            <h3 className="text-2xl font-semibold text-slate-800 mb-6">
-              🧭 Menús de Navegación
+            <h3 className="text-2xl font-semibold text-slate-800 mb-6 flex items-center">
+              <Icon
+                name="number-5"
+                size={28}
+                className="mr-3 text-blue-600"
+                apiBaseUrl={apiBaseUrl}
+              />
+              Menús de Navegación
             </h3>
             <p className="text-slate-700 mb-6 text-lg">
               Crea menús más visuales e intuitivos con iconos representativos:
@@ -414,7 +410,7 @@ function Navigation() {
             {/* Demo live de navegación */}
             <div className="bg-slate-800 rounded-xl p-6 mt-6">
               <h4 className="font-semibold text-white mb-4">
-                🎯 Demo en Vivo - Navegación:
+                Demo en Vivo - Navegación:
               </h4>
               <nav className="max-w-xs">
                 <ul className="space-y-2">

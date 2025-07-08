@@ -97,7 +97,7 @@ export default function Usage() {
               <div>
                 <h3 className="text-2xl font-semibold text-slate-800 mb-6 flex items-center">
                   <Icon
-                    name="target"
+                    name="code-brackets"
                     size={28}
                     className="mr-3 text-blue-600"
                     apiBaseUrl={apiBaseUrl}
@@ -116,7 +116,6 @@ export default function Usage() {
                       <Icon
                         name="clipboard"
                         size={20}
-                        color="white"
                         className="mr-2"
                         apiBaseUrl={apiBaseUrl}
                       />
@@ -239,7 +238,7 @@ export default function Usage() {
                 {/* Ejemplos interactivos */}
                 <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 mt-8">
                   <h4 className="text-xl font-bold text-slate-900 mb-4">
-                    🎨 Ejemplos Interactivos
+                    Ejemplos Interactivos
                   </h4>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                     <div className="text-center">
@@ -317,7 +316,13 @@ export default function Usage() {
             >
               <div>
                 <h3 className="text-2xl font-semibold text-slate-800 mb-6">
-                  🔧 Hook useIcon
+                  <Icon
+                    name="wrench"
+                    size={28}
+                    className="mr-3 text-blue-600"
+                    apiBaseUrl={apiBaseUrl}
+                  />
+                  Hook useIcon
                 </h3>
                 <p className="text-slate-700 mb-6 text-lg">
                   Para casos avanzados donde necesites más control sobre la
@@ -467,7 +472,7 @@ export default function Usage() {
         {/* Tips de optimización */}
         <div className="bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200/50 rounded-xl p-6 mt-8">
           <h3 className="text-xl font-semibold text-slate-800 mb-4">
-            💡 Tips de Optimización
+            Tips de Optimización
           </h3>
           <ul className="space-y-3 text-slate-700">
             <li className="flex items-start space-x-3">

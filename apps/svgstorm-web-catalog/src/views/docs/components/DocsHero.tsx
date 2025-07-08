@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { Icon } from "svgstorm-client";
 
 export default function DocsHero() {
@@ -15,6 +16,24 @@ export default function DocsHero() {
         <div className="absolute top-0 -right-4 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-2000"></div>
         <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-4000"></div>
       </div>
+
+      {/* Logo de fondo decorativo */}
+      <motion.div
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        className="absolute top-0 -right-20 lg:-top-5 lg:-right-10 opacity-15 pointer-events-none"
+      >
+        <div className="w-72 h-72 md:w-80 md:h-80 lg:w-[360px] lg:h-[360px] xl:w-[500px] xl:h-[500px] flex items-center opacity-60 justify-center rotate-15">
+          <Image
+            src="/SVGStorm_logo.svg"
+            alt="SVGStorm Logo"
+            width={420}
+            height={420}
+            className="w-full h-full opacity-60"
+          />
+        </div>
+      </motion.div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
         <motion.div
@@ -32,7 +51,6 @@ export default function DocsHero() {
             <Icon
               name="documentation"
               size={16}
-              color="currentColor"
               className="mr-2"
               apiBaseUrl={apiBaseUrl}
             />
@@ -68,7 +86,6 @@ export default function DocsHero() {
               <Icon
                 name="external-link"
                 size={20}
-                color="currentColor"
                 className="mr-3 transition-transform group-hover:rotate-12"
                 apiBaseUrl={apiBaseUrl}
               />
@@ -86,7 +103,6 @@ export default function DocsHero() {
                 <Icon
                   name="folder"
                   size={20}
-                  color="white"
                   className="mr-3 transition-transform group-hover:-translate-x-1"
                   apiBaseUrl={apiBaseUrl}
                 />

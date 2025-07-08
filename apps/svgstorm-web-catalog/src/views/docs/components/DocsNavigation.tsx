@@ -30,12 +30,7 @@ export default function DocsNavigation({
                   : "text-slate-600 hover:text-slate-900 hover:bg-slate-100/80 border border-slate-200/50"
               }`}
             >
-              <Icon
-                name={tab.icon}
-                size={18}
-                color={activeTab === tab.id ? "white" : "currentColor"}
-                apiBaseUrl={apiBaseUrl}
-              />
+              <Icon name={tab.icon} size={18} apiBaseUrl={apiBaseUrl} />
               <span className="font-semibold">{tab.label}</span>
               {activeTab === tab.id && (
                 <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>

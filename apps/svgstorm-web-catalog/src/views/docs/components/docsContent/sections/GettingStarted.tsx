@@ -14,7 +14,7 @@ export default function GettingStarted() {
       <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-slate-200/50">
         <h2 className="text-4xl font-bold bg-gradient-to-r from-slate-900 to-purple-900 bg-clip-text text-transparent mb-8 flex items-center">
           <Icon
-            name="rocket"
+            name="demo"
             size={36}
             className="mr-3 text-purple-600"
             apiBaseUrl={apiBaseUrl}
@@ -41,13 +41,8 @@ export default function GettingStarted() {
             </h3>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="flex items-start space-x-4 p-4 rounded-xl bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200/50">
-                <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mt-1">
-                  <Icon
-                    name="check-circle"
-                    size={20}
-                    color="white"
-                    apiBaseUrl={apiBaseUrl}
-                  />
+                <div className="w-8 h-8 bg-gradient-to-r text-white from-green-500 to-emerald-500 rounded-full flex items-center justify-center mt-1">
+                  <Icon name="check-circle" size={20} apiBaseUrl={apiBaseUrl} />
                 </div>
                 <div>
                   <h4 className="font-semibold text-slate-800 text-lg">
@@ -77,13 +72,8 @@ export default function GettingStarted() {
                 </div>
               </div>
               <div className="flex items-start space-x-4 p-4 rounded-xl bg-gradient-to-r from-purple-50 to-violet-50 border border-purple-200/50">
-                <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-violet-500 rounded-full flex items-center justify-center mt-1">
-                  <Icon
-                    name="check-circle"
-                    size={20}
-                    color="white"
-                    apiBaseUrl={apiBaseUrl}
-                  />
+                <div className="w-8 h-8 bg-gradient-to-r text-white from-purple-500 to-violet-500 rounded-full flex items-center justify-center mt-1">
+                  <Icon name="check-circle" size={20} apiBaseUrl={apiBaseUrl} />
                 </div>
                 <div>
                   <h4 className="font-semibold text-slate-800 text-lg">

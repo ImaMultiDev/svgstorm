@@ -261,7 +261,7 @@ const IconButton: React.FC<IconButtonProps> = ({ icon, label, onClick, apiBaseUr
           <div>
             <h3 className="text-2xl font-semibold text-slate-800 mb-6 flex items-center">
               <Icon
-                name="globe"
+                name="number-1"
                 size={28}
                 className="mr-3 text-blue-600"
                 apiBaseUrl={apiBaseUrl}
@@ -375,7 +375,7 @@ const IconButton: React.FC<IconButtonProps> = ({ icon, label, onClick, apiBaseUr
           <div>
             <h3 className="text-2xl font-semibold text-slate-800 mb-6 flex items-center">
               <Icon
-                name="wrench"
+                name="number-2"
                 size={28}
                 className="mr-3 text-purple-600"
                 apiBaseUrl={apiBaseUrl}
@@ -397,7 +397,7 @@ const IconButton: React.FC<IconButtonProps> = ({ icon, label, onClick, apiBaseUr
           <div>
             <h3 className="text-2xl font-semibold text-slate-800 mb-6 flex items-center">
               <Icon
-                name="sparkles"
+                name="number-3"
                 size={28}
                 className="mr-3 text-indigo-600"
                 apiBaseUrl={apiBaseUrl}
@@ -418,9 +418,9 @@ const IconButton: React.FC<IconButtonProps> = ({ icon, label, onClick, apiBaseUr
           <div>
             <h3 className="text-2xl font-semibold text-slate-800 mb-6 flex items-center">
               <Icon
-                name="target"
+                name="number-4"
                 size={28}
-                className="mr-3 text-green-600"
+                className="mr-3 text-blue-600"
                 apiBaseUrl={apiBaseUrl}
               />
               Optimización de Rendimiento para Listas Grandes
@@ -440,9 +440,9 @@ const IconButton: React.FC<IconButtonProps> = ({ icon, label, onClick, apiBaseUr
           <div>
             <h3 className="text-2xl font-semibold text-slate-800 mb-6 flex items-center">
               <Icon
-                name="lock"
+                name="number-5"
                 size={28}
-                className="mr-3 text-red-600"
+                className="mr-3 text-blue-600"
                 apiBaseUrl={apiBaseUrl}
               />
               Manejo Robusto de Errores con Error Boundaries
@@ -461,7 +461,13 @@ const IconButton: React.FC<IconButtonProps> = ({ icon, label, onClick, apiBaseUr
           {/* Mejores Prácticas */}
           <div className="bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200/50 rounded-xl p-8">
             <h3 className="text-2xl font-semibold text-slate-800 mb-6">
-              ✨ Mejores Prácticas
+              <Icon
+                name="sparkles"
+                size={28}
+                className="mr-3 text-blue-600"
+                apiBaseUrl={apiBaseUrl}
+              />
+              Mejores Prácticas
             </h3>
             <CodeBlock
               code={bestPracticesCode}

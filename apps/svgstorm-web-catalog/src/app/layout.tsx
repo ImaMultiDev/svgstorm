@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 import { SVGStormProvider } from "@/contexts/SVGStormContext";
 import "./globals.css";
 
@@ -20,6 +21,7 @@ export default function RootLayout({
         <SVGStormProvider apiBaseUrl="https://overflowing-adaptation-production.up.railway.app">
           <Navbar />
           <main className="min-h-screen">{children}</main>
+          <Footer />
         </SVGStormProvider>
       </body>
     </html>

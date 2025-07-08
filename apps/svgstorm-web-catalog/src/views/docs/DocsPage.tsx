@@ -13,10 +13,10 @@ export default function DocsPage() {
     "https://overflowing-adaptation-production.up.railway.app";
 
   const tabs: DocsTab[] = [
-    { id: "getting-started", label: "Primeros Pasos", icon: "rocket" },
+    { id: "getting-started", label: "Primeros Pasos", icon: "demo" },
     { id: "installation", label: "Instalación", icon: "package" },
-    { id: "usage", label: "Uso Básico", icon: "lightning-bolt" },
-    { id: "examples", label: "Ejemplos Prácticos", icon: "palette" },
+    { id: "usage", label: "Uso Básico", icon: "coffee" },
+    { id: "examples", label: "Ejemplos Prácticos", icon: "lightning-bolt" },
     { id: "advanced-config", label: "Configuración Avanzada", icon: "wrench" },
     { id: "api", label: "API Reference", icon: "documentation" },
   ];

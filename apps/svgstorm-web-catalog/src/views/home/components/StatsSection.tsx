@@ -79,9 +79,9 @@ export default function StatsSection({ stats }: StatsSectionProps) {
               <div className="relative">
                 <div className="flex items-center justify-center mb-6">
                   <div
-                    className={`w-16 h-16 bg-gradient-to-r ${item.gradient} rounded-2xl flex items-center justify-center shadow-lg`}
+                    className={`w-16 h-16 bg-gradient-to-r text-white ${item.gradient} rounded-2xl flex items-center justify-center shadow-lg`}
                   >
-                    <Icon name={item.iconName} size={32} color="white" />
+                    <Icon name={item.iconName} size={32} />
                   </div>
                 </div>
 

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { Icon } from "@/components/common/SVGStormIcon";
 
 export default function HeroSection() {
@@ -13,8 +14,24 @@ export default function HeroSection() {
         <div className="absolute top-10 -right-4 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse animation-delay-2000"></div>
         <div className="absolute -bottom-8 left-20 w-96 h-96 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse animation-delay-4000"></div>
       </div>
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+      {/* Logo de fondo decorativo */}
+      <motion.div
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        className="absolute top-20 -left-20 lg:top-5 lg:-left-10 opacity-15 pointer-events-none"
+      >
+        <div className="w-72 h-72 md:w-80 md:h-80 lg:w-[360px] lg:h-[360px] xl:w-[420px] xl:h-[420px] flex items-center opacity-60 justify-center -rotate-15">
+          <Image
+            src="/SVGStorm_logo.svg"
+            alt="SVGStorm Logo"
+            width={480}
+            height={480}
+            className="w-full h-full opacity-60"
+          />
+        </div>
+      </motion.div>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -27,18 +44,22 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-purple-200 text-sm font-medium mb-8"
           >
-            <span className="mr-2">✨</span>
+            <span className="mr-2 text-yellow-400">
+              <Icon name="sparkles" size={16} />
+            </span>
             Biblioteca Premium de Iconos SVG
           </motion.div>
 
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8">
-            <span className="block bg-gradient-to-r from-white via-purple-200 to-blue-200 bg-clip-text text-transparent">
-              Descubre Iconos
-            </span>
-            <span className="block text-5xl md:text-6xl lg:text-7xl bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 bg-clip-text text-transparent font-light mt-2">
-              Extraordinarios
-            </span>
-          </h1>
+          <div className="flex flex-col items-center mb-8">
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold">
+              <span className="block bg-gradient-to-r from-white via-purple-200 to-blue-200 bg-clip-text text-transparent">
+                Descubre Iconos
+              </span>
+              <span className="block text-5xl md:text-6xl lg:text-7xl bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 bg-clip-text text-transparent font-light mt-2">
+                Extraordinarios
+              </span>
+            </h1>
+          </div>
 
           <p className="text-xl md:text-2xl text-slate-300 mb-12 max-w-4xl mx-auto leading-relaxed">
             Explora nuestra biblioteca profesional de iconos SVG.
@@ -67,26 +88,10 @@ export default function HeroSection() {
               <Icon
                 name="search"
                 size={20}
-                color="white"
                 className="mr-3 transition-transform group-hover:scale-110"
               />
               Explorar Iconos
             </motion.button>
-
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link
-                href="/demo"
-                className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-xl font-semibold shadow-2xl hover:shadow-green-500/50 transition-all duration-300 hover:from-green-700 hover:to-emerald-700"
-              >
-                <Icon
-                  name="code"
-                  size={20}
-                  color="white"
-                  className="mr-3 transition-transform group-hover:scale-110"
-                />
-                Demo & Código
-              </Link>
-            </motion.div>
 
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
@@ -96,7 +101,6 @@ export default function HeroSection() {
                 <Icon
                   name="documentation"
                   size={20}
-                  color="white"
                   className="mr-3 transition-transform group-hover:rotate-12"
                 />
                 Ver Docs

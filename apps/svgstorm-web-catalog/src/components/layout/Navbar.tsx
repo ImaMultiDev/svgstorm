@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Icon } from "@/components/common/SVGStormIcon";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +12,6 @@ export default function Navbar() {
   const navItems = [
     { label: "Catálogo", href: "/", icon: "palette" },
     { label: "Documentación", href: "/docs", icon: "documentation" },
-    { label: "Demo", href: "/demo", icon: "target" },
     {
       label: "API",
       href: "https://overflowing-adaptation-production.up.railway.app/api/icons",
@@ -30,18 +30,26 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center space-x-3"
           >
-            <div className="relative">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <Icon name="lightning" size={20} color="white" />
+            <Link href="/" className="flex items-center space-x-3">
+              <div className="relative">
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-white shadow-sm border border-gray-200">
+                  <Image
+                    src="/SVGStorm_logo.svg"
+                    alt="SVGStorm Logo"
+                    width={32}
+                    height={32}
+                    className="w-8 h-8"
+                  />
+                </div>
+                <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
               </div>
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-            </div>
-            <div>
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
-                SVGStorm
-              </h1>
-              <p className="text-xs text-gray-500 -mt-1">Icon Library</p>
-            </div>
+              <div>
+                <h1 className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
+                  SVGStorm
+                </h1>
+                <p className="text-xs text-gray-500 -mt-1">Icon Library</p>
+              </div>
+            </Link>
           </motion.div>
 
           {/* Desktop Navigation */}
