@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "SVGStorm - Professional Icon Library",
   description:
     "Discover and implement beautiful SVG icons with the SVGStorm library. Professional, elegant, and developer-friendly.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
