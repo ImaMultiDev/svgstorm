@@ -3,7 +3,441 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 const expandedIcons = [
-  // COLECCIÓN COMPLETA DE 204 ICONOS DE LUCIDE
+  {
+    name: "armchair",
+    svg_code: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 9V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3"/><path d="M3 16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0z"/><path d="M5 18v2"/><path d="M19 18v2"/></svg>`,
+    category: "Furniture",
+    tags: ["furniture", "home", "chair", "couch"],
+    description: "Armchair Icon",
+  },
+  {
+    name: "anchor",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 22V8"/>
+      <path d="M5 12H2a10 10 0 0 0 20 0h-3"/>
+      <circle cx="12" cy="5" r="3"/>
+    </svg>`,
+    category: "Objects",
+    tags: ["anchor", "nautical", "boat", "sea", "marine"],
+    description: "Anchor icon representing maritime or stability",
+  },
+  {
+    name: "alarm-clock",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="13" r="8"/>
+      <path d="M12 9v4l2 2"/>
+      <path d="M5 3 2 6"/>
+      <path d="m22 6-3-3"/>
+      <path d="M6.38 18.7 4 21"/>
+      <path d="M17.64 18.67 20 21"/>
+    </svg>`,
+    category: "Objects",
+    tags: ["alarm", "clock", "time", "wake", "morning"],
+    description: "Alarm clock icon representing time or waking up",
+  },
+  {
+    name: "alarm-clock-check",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="13" r="8"/>
+      <path d="M5 3 2 6"/>
+      <path d="m22 6-3-3"/>
+      <path d="M6.38 18.7 4 21"/>
+      <path d="M17.64 18.67 20 21"/>
+      <path d="m9 13 2 2 4-4"/>
+    </svg>`,
+    category: "Objects",
+    tags: ["alarm", "clock", "time", "check", "confirmed", "schedule"],
+    description:
+      "Alarm clock with check mark, representing confirmed time or event",
+  },
+  {
+    name: "alarm-clock-off",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6.87 6.87a8 8 0 1 0 11.26 11.26"/>
+      <path d="M19.9 14.25a8 8 0 0 0-9.15-9.15"/>
+      <path d="m22 6-3-3"/>
+      <path d="M6.26 18.67 4 21"/>
+      <path d="m2 2 20 20"/>
+      <path d="M4 4 2 6"/>
+    </svg>`,
+    category: "Objects",
+    tags: ["alarm", "clock", "off", "disabled", "mute", "sleep"],
+    description:
+      "Alarm clock icon with off state, representing deactivated or muted alarm",
+  },
+  {
+    name: "ambulance",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10 10H6"/>
+      <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/>
+      <path d="M19 18h2a1 1 0 0 0 1-1v-3.28a1 1 0 0 0-.684-.948l-1.923-.641a1 1 0 0 1-.578-.502l-1.539-3.076A1 1 0 0 0 16.382 8H14"/>
+      <path d="M8 8v4"/>
+      <path d="M9 18h6"/>
+      <circle cx="17" cy="18" r="2"/>
+      <circle cx="7" cy="18" r="2"/>
+    </svg>`,
+    category: "Health",
+    tags: ["ambulance", "emergency", "medical", "vehicle", "health"],
+    description: "Ambulance icon representing emergency medical services",
+  },
+  {
+    name: "annoyed",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M8 15h8"/>
+      <path d="M8 9h2"/>
+      <path d="M14 9h2"/>
+    </svg>`,
+    category: "Emotions",
+    tags: ["annoyed", "face", "emotion", "expression", "mood"],
+    description: "Annoyed face icon expressing irritation or displeasure",
+  },
+  {
+    name: "arrow-up-a-z",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="m3 8 4-4 4 4"/>
+  <path d="M7 4v16"/>
+  <path d="M20 8h-5"/>
+  <path d="M15 10V6.5a2.5 2.5 0 0 1 5 0V10"/>
+  <path d="M15 14h5l-5 6h5"/>
+</svg>`,
+    category: "Arrows",
+    tags: ["arrow", "up", "alphabet", "sort", "a-z"],
+    description: "Arrow pointing up with A-Z, used for alphabetical sorting",
+  },
+  {
+    name: "arrow-up-down",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="m21 16-4 4-4-4"/>
+  <path d="M17 20V4"/>
+  <path d="m3 8 4-4 4 4"/>
+  <path d="M7 4v16"/>
+</svg>`,
+    category: "Arrows",
+    tags: ["arrow", "up", "down", "swap", "sort"],
+    description:
+      "Arrow icon showing up and down directions, representing sorting or movement",
+  },
+  {
+    name: "arrow-up-from-line",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="m18 9-6-6-6 6"/>
+  <path d="M12 3v14"/>
+  <path d="M5 21h14"/>
+</svg>`,
+    category: "Arrows",
+    tags: ["arrow", "up", "line", "upload", "export"],
+    description:
+      "Arrow going up from a horizontal line, often used for export or upload",
+  },
+  {
+    name: "arrow-up-from-dot",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="m5 9 7-7 7 7"/>
+  <path d="M12 16V2"/>
+  <circle cx="12" cy="21" r="1"/>
+</svg>`,
+    category: "Arrows",
+    tags: ["arrow", "up", "dot", "upload", "export"],
+    description:
+      "Arrow going up from a dot, symbolizing upward movement or action",
+  },
+  {
+    name: "arrow-up-narrow-wide",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="m3 8 4-4 4 4"/>
+  <path d="M7 4v16"/>
+  <path d="M11 12h4"/>
+  <path d="M11 16h7"/>
+  <path d="M11 20h10"/>
+</svg>`,
+    category: "Arrows",
+    tags: ["arrow", "up", "width", "narrow", "wide", "sort"],
+    description:
+      "Arrow up with increasing width, representing size or priority sorting",
+  },
+  {
+    name: "arrow-up-left",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M7 17V7h10"/>
+  <path d="M17 17 7 7"/>
+</svg>`,
+    category: "Arrows",
+    tags: ["arrow", "up", "left", "direction", "navigation"],
+    description:
+      "Arrow pointing up and to the left, indicating direction or navigation",
+  },
+  {
+    name: "arrow-up-right",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M7 7h10v10"/>
+  <path d="M7 17 17 7"/>
+</svg>`,
+    category: "Arrows",
+    tags: ["arrow", "up", "right", "direction", "navigation"],
+    description:
+      "Arrow pointing up and to the right, representing movement or redirection",
+  },
+  {
+    name: "arrow-up-to-line",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M5 3h14"/>
+  <path d="m18 13-6-6-6 6"/>
+  <path d="M12 7v14"/>
+</svg>`,
+    category: "Arrows",
+    tags: ["arrow", "up", "line", "limit", "top"],
+    description:
+      "Arrow going up toward a line, representing top or max position",
+  },
+  {
+    name: "arrow-up-wide-narrow",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="m3 8 4-4 4 4"/>
+  <path d="M7 4v16"/>
+  <path d="M11 12h10"/>
+  <path d="M11 16h7"/>
+  <path d="M11 20h4"/>
+</svg>`,
+    category: "Arrows",
+    tags: ["arrow", "up", "wide", "narrow", "sort"],
+    description:
+      "Arrow up with decreasing width, used to represent descending priority or size",
+  },
+  {
+    name: "arrow-up-z-a",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="m3 8 4-4 4 4"/>
+  <path d="M7 4v16"/>
+  <path d="M15 4h5l-5 6h5"/>
+  <path d="M15 20v-3.5a2.5 2.5 0 0 1 5 0V20"/>
+  <path d="M20 18h-5"/>
+</svg>`,
+    category: "Arrows",
+    tags: ["arrow", "up", "alphabet", "sort", "z-a"],
+    description: "Arrow up with Z-A, representing reverse alphabetical sorting",
+  },
+  {
+    name: "arrows-up-from-line",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="m4 6 3-3 3 3"/>
+  <path d="M7 17V3"/>
+  <path d="m14 6 3-3 3 3"/>
+  <path d="M17 17V3"/>
+  <path d="M4 21h16"/>
+</svg>`,
+    category: "Arrows",
+    tags: ["arrows", "up", "upload", "double", "from line"],
+    description:
+      "Two arrows going up from a horizontal line, representing dual upload or output",
+  },
+  {
+    name: "atom",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="1"/>
+  <path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5Z"/>
+  <path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5Z"/>
+</svg>`,
+    category: "Science",
+    tags: ["atom", "physics", "science", "molecule", "energy"],
+    description: "Atom icon representing science or energy concepts",
+  },
+  {
+    name: "audio-lines",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M2 10v3"/>
+  <path d="M6 6v11"/>
+  <path d="M10 3v18"/>
+  <path d="M14 8v7"/>
+  <path d="M18 5v13"/>
+  <path d="M22 10v3"/>
+</svg>`,
+    category: "Media",
+    tags: ["audio", "equalizer", "sound", "lines", "bars"],
+    description: "Audio levels or equalizer icon with vertical lines",
+  },
+  {
+    name: "audio-waveform",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M2 13a2 2 0 0 0 2-2V7a2 2 0 0 1 4 0v13a2 2 0 0 0 4 0V4a2 2 0 0 1 4 0v13a2 2 0 0 0 4 0v-4a2 2 0 0 1 2-2"/>
+</svg>`,
+    category: "Media",
+    tags: ["audio", "waveform", "sound", "music", "media"],
+    description: "Waveform icon representing audio or voice signal",
+  },
+  {
+    name: "axe",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="m14 12-8.381 8.38a1 1 0 0 1-3.001-3L11 9"/>
+  <path d="M15 15.5a.5.5 0 0 0 .5.5A6.5 6.5 0 0 0 22 9.5a.5.5 0 0 0-.5-.5h-1.672a2 2 0 0 1-1.414-.586l-5.062-5.062a1.205 1.205 0 0 0-1.704 0L9.352 5.648a1.205 1.205 0 0 0 0 1.704l5.062 5.062A2 2 0 0 1 15 13.828z"/>
+</svg>`,
+    category: "Tools",
+    tags: ["axe", "tool", "weapon", "chop", "wood"],
+    description: "Axe icon used for chopping, tools, or fantasy themes",
+  },
+  {
+    name: "axis-3d",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M13.5 10.5 15 9"/>
+  <path d="M4 4v15a1 1 0 0 0 1 1h15"/>
+  <path d="M4.293 19.707 6 18"/>
+  <path d="m9 15 1.5-1.5"/>
+</svg>`,
+    category: "Design",
+    tags: ["3d", "axis", "grid", "geometry", "space"],
+    description: "3D axis icon for geometry, CAD or design tools",
+  },
+  {
+    name: "baby",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"/>
+  <path d="M15 12h.01"/>
+  <path d="M19.38 6.813A9 9 0 0 1 20.8 10.2a2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"/>
+  <path d="M9 12h.01"/>
+</svg>`,
+    category: "People",
+    tags: ["baby", "child", "infant", "cute", "young"],
+    description: "Baby face icon representing infants or child-related themes",
+  },
+  {
+    name: "backpack",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/>
+  <path d="M8 10h8"/>
+  <path d="M8 18h8"/>
+  <path d="M8 22v-6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v6"/>
+  <path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/>
+</svg>`,
+    category: "Objects",
+    tags: ["backpack", "bag", "travel", "school", "carry"],
+    description: "Backpack icon representing travel or school supplies",
+  },
+  {
+    name: "badge-alert",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/>
+  <line x1="12" y1="8" x2="12" y2="12"/>
+  <line x1="12" y1="16" x2="12.01" y2="16"/>
+</svg>`,
+    category: "Badges",
+    tags: ["badge", "alert", "warning", "caution", "notice"],
+    description: "Badge icon with alert symbol indicating a warning or notice",
+  },
+  {
+    name: "badge-check",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/>
+  <path d="m9 12 2 2 4-4"/>
+</svg>`,
+    category: "Badges",
+    tags: ["badge", "check", "verified", "approved", "status"],
+    description:
+      "Badge with checkmark symbol, often used to represent verified or approved status",
+  },
+  {
+    name: "badge-dollar-sign",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/>
+  <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/>
+  <path d="M12 18V6"/>
+</svg>`,
+    category: "Badges",
+    tags: ["badge", "dollar", "money", "finance", "payment"],
+    description:
+      "Badge with dollar sign, representing money, payment, or financial status",
+  },
+  {
+    name: "badge-euro",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/>
+  <path d="M7 12h5"/>
+  <path d="M15 9.4a4 4 0 1 0 0 5.2"/>
+</svg>`,
+    category: "Badges",
+    tags: ["badge", "euro", "currency", "finance", "money"],
+    description:
+      "Badge with euro symbol, used for European financial or currency context",
+  },
+  {
+    name: "badge-info",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/>
+  <line x1="12" y1="16" x2="12" y2="12"/>
+  <line x1="12" y1="8" x2="12.01" y2="8"/>
+</svg>`,
+    category: "Badges",
+    tags: ["badge", "info", "information", "notice", "details"],
+    description: "Badge icon with info symbol representing information or help",
+  },
+  {
+    name: "badge-minus",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/>
+  <line x1="8" y1="12" x2="16" y2="12"/>
+</svg>`,
+    category: "Badges",
+    tags: ["badge", "minus", "remove", "subtract", "decrease"],
+    description:
+      "Badge icon with minus symbol, representing removal or subtraction",
+  },
+  {
+    name: "badge-plus",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/>
+  <line x1="12" y1="8" x2="12" y2="16"/>
+  <line x1="8" y1="12" x2="16" y2="12"/>
+</svg>`,
+    category: "Badges",
+    tags: ["badge", "plus", "add", "increase", "create"],
+    description:
+      "Badge icon with plus symbol, representing addition or creation",
+  },
+  {
+    name: "badge-percent",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/>
+  <path d="m15 9-6 6"/>
+  <path d="M9 9h.01"/>
+  <path d="M15 15h.01"/>
+</svg>`,
+    category: "Badges",
+    tags: ["badge", "percent", "discount", "offer", "promotion"],
+    description: "Badge with percent symbol, used for promotions or discounts",
+  },
+  {
+    name: "badge-question-mark",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/>
+  <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+  <line x1="12" y1="17" x2="12.01" y2="17"/>
+</svg>`,
+    category: "Badges",
+    tags: ["badge", "question", "help", "unknown", "info"],
+    description:
+      "Badge icon with question mark, representing help or unknown status",
+  },
+  {
+    name: "badge-x",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/>
+  <line x1="15" y1="9" x2="9" y2="15"/>
+  <line x1="9" y1="9" x2="15" y2="15"/>
+</svg>`,
+    category: "Badges",
+    tags: ["badge", "x", "cancel", "error", "close"],
+    description: "Badge with X symbol, used to indicate error or cancellation",
+  },
+  {
+    name: "ban",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="10"/>
+  <path d="m4.9 4.9 14.2 14.2"/>
+</svg>`,
+    category: "Symbols",
+    tags: ["ban", "block", "prohibited", "stop", "cancel"],
+    description:
+      "Ban or forbidden symbol used to indicate restricted access or actions",
+  },
 
   // ===== WEATHER & NATURE ICONS (25) =====
   {
@@ -58,19 +492,7 @@ const expandedIcons = [
     tags: ["snow", "winter", "cold", "frozen", "ice"],
     description: "Snow or winter weather",
   },
-  {
-    name: "tree-pine",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M17 14h.01"/>
-    <path d="M7 14h.01"/>
-    <path d="M12 3 8 10h8z"/>
-    <path d="M12 8 9.5 13.5h5z"/>
-    <path d="M12 13v8"/>
-  </svg>`,
-    category: "Weather & Nature",
-    tags: ["tree", "pine", "forest", "nature", "evergreen"],
-    description: "Pine tree or evergreen forest",
-  },
+
   {
     name: "flower",
     svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -118,6 +540,69 @@ const expandedIcons = [
     description: "Ocean waves or water movement",
   },
   {
+    name: "bubbles",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M7.2 14.8a2 2 0 0 1 2 2"/>
+      <circle cx="18.5" cy="8.5" r="3.5"/>
+      <circle cx="7.5" cy="16.5" r="5.5"/>
+      <circle cx="7.5" cy="4.5" r="2.5"/>
+    </svg>`,
+    category: "Nature",
+    tags: ["bubbles", "air", "clean", "soap", "water", "floating"],
+    description: "A cluster of bubbles, representing air, soap, or lightness.",
+  },
+  {
+    name: "building",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect width="16" height="20" x="4" y="2" rx="2" ry="2"/>
+      <path d="M9 22v-4h6v4"/>
+      <path d="M8 6h.01"/>
+      <path d="M16 6h.01"/>
+      <path d="M12 6h.01"/>
+      <path d="M12 10h.01"/>
+      <path d="M12 14h.01"/>
+      <path d="M16 10h.01"/>
+      <path d="M16 14h.01"/>
+      <path d="M8 10h.01"/>
+      <path d="M8 14h.01"/>
+    </svg>`,
+    category: "Architecture",
+    tags: ["building", "city", "office", "structure", "urban"],
+    description:
+      "Generic building icon representing city infrastructure or architecture.",
+  },
+  {
+    name: "building-2",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/>
+      <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/>
+      <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/>
+      <path d="M10 6h4"/>
+      <path d="M10 10h4"/>
+      <path d="M10 14h4"/>
+      <path d="M10 18h4"/>
+    </svg>`,
+    category: "Architecture",
+    tags: ["building", "skyscraper", "tower", "real estate", "business"],
+    description:
+      "Tall building icon, representing skyscrapers or modern urban structures.",
+  },
+  {
+    name: "bus",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 6v6"/>
+      <path d="M15 6v6"/>
+      <path d="M2 12h19.6"/>
+      <path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"/>
+      <circle cx="7" cy="18" r="2"/>
+      <path d="M9 18h5"/>
+      <circle cx="16" cy="18" r="2"/>
+    </svg>`,
+    category: "Transportation",
+    tags: ["bus", "vehicle", "transport", "public", "travel", "transit"],
+    description: "Bus icon representing public transportation or travel.",
+  },
+  {
     name: "rainbow",
     svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <path d="M22 17c0-9.5-7.5-17-17-17s-17 7.5-17 17"/>
@@ -159,23 +644,7 @@ const expandedIcons = [
     tags: ["droplets", "water", "rain", "moisture", "liquid"],
     description: "Water droplets or moisture",
   },
-  {
-    name: "bug",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M8 2h8"/>
-    <path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
-    <path d="M12 8c0 8 0 8 0 8"/>
-    <path d="M8 8c0 4 0 10 4 10s4-6 4-10"/>
-    <path d="M8 21a4 4 0 0 0 8 0"/>
-    <path d="M5 10h.01"/>
-    <path d="M19 10h.01"/>
-    <path d="M5 14h.01"/>
-    <path d="M19 14h.01"/>
-  </svg>`,
-    category: "Weather & Nature",
-    tags: ["bug", "insect", "beetle", "creature", "nature"],
-    description: "Bug or small insect",
-  },
+
   {
     name: "sprout",
     svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -188,19 +657,7 @@ const expandedIcons = [
     tags: ["sprout", "seedling", "growth", "plant", "new"],
     description: "Plant sprout or new growth",
   },
-  {
-    name: "cactus",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M13 21v-8"/>
-    <path d="M13 5v8"/>
-    <path d="M16 8a3 3 0 0 1 6 0c0 3-3 5-6 8"/>
-    <path d="M8 8a3 3 0 0 0-6 0c0 3 3 5 6 8"/>
-    <path d="M7 21h10"/>
-  </svg>`,
-    category: "Weather & Nature",
-    tags: ["cactus", "desert", "plant", "succulent", "dry"],
-    description: "Cactus or desert plant",
-  },
+
   {
     name: "fire",
     svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -242,21 +699,6 @@ const expandedIcons = [
     category: "Weather & Nature",
     tags: ["earth", "globe", "world", "planet", "global"],
     description: "Planet Earth or global",
-  },
-  {
-    name: "recycle",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M7 19H4.815a1.83 1.83 0 0 1-1.57-.881 1.784 1.784 0 0 1-.004-1.784L7.196 9.5"/>
-    <path d="M11 19h8.203a1.83 1.83 0 0 0 1.556-.89 1.784 1.784 0 0 0 0-1.775l-1.226-2.12"/>
-    <path d="M14 16l-3 3 3 3"/>
-    <path d="M8.293 13.596L7.196 9.5 3.1 10.598"/>
-    <path d="M9.344 5.811L11.898 9.5 14.482 8.562"/>
-    <path d="M15.707 13.596L14.482 8.562 18.655 7.409"/>
-    <path d="M13.188 2.188L14.482 8.562 11.898 9.5"/>
-  </svg>`,
-    category: "Weather & Nature",
-    tags: ["recycle", "environment", "green", "eco", "sustainability"],
-    description: "Recycling or environmental conservation",
   },
   {
     name: "sunrise",
@@ -315,12 +757,7 @@ const expandedIcons = [
   // ===== TRANSPORTATION & VEHICLES ICONS (20) =====
   {
     name: "car",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9L18.4 10c-.4-.8-1.2-1.3-2.1-1.3H7.7c-.9 0-1.7.5-2.1 1.3l-2.1 1.1c-.8.2-1.5 1-1.5 1.9v3c0 .6.4 1 1 1h2"/>
-    <circle cx="7" cy="17" r="2"/>
-    <path d="M9 17h6"/>
-    <circle cx="17" cy="17" r="2"/>
-  </svg>`,
+    svg_code: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>`,
     category: "Transportation",
     tags: ["car", "vehicle", "automobile", "transport", "drive"],
     description: "Passenger car or automobile",
@@ -367,19 +804,6 @@ const expandedIcons = [
     description: "Train or railway transport",
   },
   {
-    name: "bike",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="18.5" cy="17.5" r="3.5"/>
-    <circle cx="5.5" cy="17.5" r="3.5"/>
-    <circle cx="15" cy="5" r="1"/>
-    <path d="M12 17.5 14 15.5 10.5 12 14 8.5 16 9.5"/>
-    <path d="M17.5 17.5L19 16"/>
-  </svg>`,
-    category: "Transportation",
-    tags: ["bike", "bicycle", "cycling", "pedal", "sport"],
-    description: "Bicycle or bike",
-  },
-  {
     name: "ship",
     svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2c1.3 0 1.9.5 2.5 1"/>
@@ -392,21 +816,7 @@ const expandedIcons = [
     tags: ["ship", "boat", "vessel", "sailing", "maritime"],
     description: "Ship or boat",
   },
-  {
-    name: "helicopter",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M3 10h12"/>
-    <path d="M3 14h9"/>
-    <path d="M13 4h8"/>
-    <path d="M13 8h5"/>
-    <path d="M16 4v4"/>
-    <path d="M11 10v6"/>
-    <path d="M5 16v2a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-2"/>
-  </svg>`,
-    category: "Transportation",
-    tags: ["helicopter", "chopper", "aircraft", "rotor", "flight"],
-    description: "Helicopter aircraft",
-  },
+
   {
     name: "sailboat",
     svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -432,20 +842,6 @@ const expandedIcons = [
     category: "Transportation",
     tags: ["taxi", "cab", "ride", "transport", "city"],
     description: "Taxi cab service",
-  },
-  {
-    name: "scooter",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="18" cy="18" r="3"/>
-    <circle cx="6" cy="18" r="3"/>
-    <path d="M9 18h6"/>
-    <path d="M12 8V5l2-2"/>
-    <path d="M9 8h3l2-5"/>
-    <path d="M18 9a2 2 0 0 1-2-2V5"/>
-  </svg>`,
-    category: "Transportation",
-    tags: ["scooter", "kick", "electric", "urban", "mobility"],
-    description: "Scooter or kick scooter",
   },
   {
     name: "motorcycle",
@@ -474,21 +870,7 @@ const expandedIcons = [
     tags: ["submarine", "underwater", "naval", "vessel", "marine"],
     description: "Submarine or underwater vessel",
   },
-  {
-    name: "tractor",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M3 4h9l1 7"/>
-    <path d="M4 11V9"/>
-    <path d="M8 11V9"/>
-    <path d="M13 11h4"/>
-    <path d="M13 19a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2H13z"/>
-    <circle cx="4" cy="19" r="2"/>
-    <circle cx="20" cy="19" r="2"/>
-  </svg>`,
-    category: "Transportation",
-    tags: ["tractor", "farm", "agriculture", "vehicle", "farming"],
-    description: "Farm tractor",
-  },
+
   {
     name: "ambulance",
     svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -517,87 +899,364 @@ const expandedIcons = [
     tags: ["truck", "lorry", "delivery", "cargo", "freight"],
     description: "Delivery truck or lorry",
   },
+
   {
-    name: "forklift",
+    name: "bus-front",
     svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M12 12H5a2 2 0 0 0-2 2v5"/>
-    <circle cx="13" cy="19" r="2"/>
-    <circle cx="5" cy="19" r="2"/>
-    <path d="M8 19h3m-6-7 1.5-1.5L9 13"/>
-    <path d="M2 13h15"/>
-    <path d="M18 6v7"/>
-    <path d="M18 8a2 2 0 1 1 4 0v6"/>
-  </svg>`,
+      <path d="M4 6 2 7"/>
+      <path d="M10 6h4"/>
+      <path d="m22 7-2-1"/>
+      <rect width="16" height="16" x="4" y="3" rx="2"/>
+      <path d="M4 11h16"/>
+      <path d="M8 15h.01"/>
+      <path d="M16 15h.01"/>
+      <path d="M6 19v2"/>
+      <path d="M18 21v-2"/>
+    </svg>`,
     category: "Transportation",
-    tags: ["forklift", "warehouse", "lifting", "cargo", "industrial"],
-    description: "Forklift for warehouse operations",
+    tags: ["bus", "front", "vehicle", "transport", "public", "travel"],
+    description:
+      "Front view of a bus, symbolizing public transport or transit.",
   },
   {
-    name: "ferry",
+    name: "cake-slice",
     svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M2 22a7 7 0 1 1 12.16-4.16L22 16l-8 6Z"/>
-    <path d="M6 16h.01"/>
-    <path d="M10 16h.01"/>
-    <path d="M14 16h.01"/>
-  </svg>`,
-    category: "Transportation",
-    tags: ["ferry", "boat", "passenger", "water", "transport"],
-    description: "Ferry boat for passengers",
+      <circle cx="9" cy="7" r="2"/>
+      <path d="M7.2 7.9 3 11v9c0 .6.4 1 1 1h16c.6 0 1-.4 1-1v-9c0-2-3-6-7-8l-3.6 2.6"/>
+      <path d="M16 13H3"/>
+      <path d="M16 17H3"/>
+    </svg>`,
+    category: "Food",
+    tags: ["cake", "dessert", "slice", "party", "sweet", "celebration"],
+    description:
+      "A slice of cake, perfect for birthday or dessert representations.",
   },
   {
-    name: "caravan",
+    name: "candy",
     svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M2 9h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1Z"/>
-    <path d="M13 20h3a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H9"/>
-    <path d="M22 17h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1h-1"/>
-    <circle cx="7" cy="20" r="2"/>
-    <path d="M22 17v-5"/>
-    <path d="M6 6h.01"/>
-    <path d="M10 6h.01"/>
-  </svg>`,
-    category: "Transportation",
-    tags: ["caravan", "trailer", "camping", "rv", "mobile"],
-    description: "Travel caravan or RV",
+      <path d="M10 7v10.9"/>
+      <path d="M14 6.1V17"/>
+      <path d="M16 7V3a1 1 0 0 1 1.707-.707 2.5 2.5 0 0 0 2.152.717 1 1 0 0 1 1.131 1.131 2.5 2.5 0 0 0 .717 2.152A1 1 0 0 1 21 8h-4"/>
+      <path d="M16.536 7.465a5 5 0 0 0-7.072 0l-2 2a5 5 0 0 0 0 7.07 5 5 0 0 0 7.072 0l2-2a5 5 0 0 0 0-7.07"/>
+      <path d="M8 17v4a1 1 0 0 1-1.707.707 2.5 2.5 0 0 0-2.152-.717 1 1 0 0 1-1.131-1.131 2.5 2.5 0 0 0-.717-2.152A1 1 0 0 1 3 16h4"/>
+    </svg>`,
+    category: "Food",
+    tags: ["candy", "sweet", "treat", "dessert", "sugar"],
+    description: "Candy icon representing sweets or confections.",
   },
   {
-    name: "cable-car",
+    name: "candy-cane",
     svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M10 3h.01"/>
-    <path d="M14 2h.01"/>
-    <path d="M16 8a4 4 0 0 0-8 0"/>
-    <path d="M4.5 17a3.5 3.5 0 0 0 0-7"/>
-    <path d="M19.5 17a3.5 3.5 0 0 0 0-7"/>
-    <path d="M17 22H7a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2Z"/>
-    <path d="M9 19h.01"/>
-    <path d="M15 19h.01"/>
-  </svg>`,
-    category: "Transportation",
-    tags: ["cable-car", "gondola", "mountain", "ski", "aerial"],
-    description: "Cable car or gondola lift",
+      <path d="M5.7 21a2 2 0 0 1-3.5-2l8.6-14a6 6 0 0 1 10.4 6 2 2 0 1 1-3.464-2 2 2 0 1 0-3.464-2Z"/>
+      <path d="M17.75 7 15 2.1"/>
+      <path d="M10.9 4.8 13 9"/>
+      <path d="m7.9 9.7 2 4.4"/>
+      <path d="M4.9 14.7 7 18.9"/>
+    </svg>`,
+    category: "Food",
+    tags: ["candy", "cane", "holiday", "christmas", "sweet"],
+    description:
+      "Candy cane icon, commonly used in holiday or festive contexts.",
+  },
+  {
+    name: "cannabis",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 22v-4"/>
+      <path d="M7 12c-1.5 0-4.5 1.5-5 3 3.5 1.5 6 1 6 1-1.5 1.5-2 3.5-2 5 2.5 0 4.5-1.5 6-3 1.5 1.5 3.5 3 6 3 0-1.5-.5-3.5-2-5 0 0 2.5.5 6-1-.5-1.5-3.5-3-5-3 1.5-1 4-4 4-6-2.5 0-5.5 1.5-7 3 0-2.5-.5-5-2-7-1.5 2-2 4.5-2 7-1.5-1.5-4.5-3-7-3 0 2 2.5 5 4 6"/>
+    </svg>`,
+    category: "Nature",
+    tags: ["cannabis", "leaf", "plant", "herb", "marijuana"],
+    description:
+      "Cannabis leaf icon used to represent natural or medical cannabis.",
+  },
+  {
+    name: "captions",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect width="18" height="14" x="3" y="5" rx="2" ry="2"/>
+      <path d="M7 15h4M15 15h2M7 11h2M13 11h4"/>
+    </svg>`,
+    category: "Media",
+    tags: ["captions", "subtitles", "video", "text", "media"],
+    description:
+      "Captions icon, commonly used for subtitles or video accessibility.",
+  },
+  {
+    name: "captions-off",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10.5 5H19a2 2 0 0 1 2 2v8.5"/>
+      <path d="M17 11h-.5"/>
+      <path d="M19 19H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2"/>
+      <path d="m2 2 20 20"/>
+      <path d="M7 11h4"/>
+      <path d="M7 15h2.5"/>
+    </svg>`,
+    category: "Media",
+    tags: ["captions", "off", "disabled", "subtitles", "video"],
+    description:
+      "Captions off icon indicating subtitles or closed captions are disabled.",
+  },
+  {
+    name: "card-sim",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 14v4"/>
+      <path d="M14.172 2a2 2 0 0 1 1.414.586l3.828 3.828A2 2 0 0 1 20 7.828V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/>
+      <path d="M8 14h8"/>
+      <rect x="8" y="10" width="8" height="8" rx="1"/>
+    </svg>`,
+    category: "Devices",
+    tags: ["sim", "card", "mobile", "data", "communication"],
+    description:
+      "SIM card icon representing mobile connectivity and identification.",
+  },
+  {
+    name: "case-lower",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="7" cy="12" r="3"/>
+      <path d="M10 9v6"/>
+      <circle cx="17" cy="12" r="3"/>
+      <path d="M14 7v8"/>
+    </svg>`,
+    category: "Text",
+    tags: ["case", "lower", "text", "typography", "letters"],
+    description:
+      "Lowercase text icon used to represent small caps or text formatting.",
+  },
+  {
+    name: "case-sensitive",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m3 15 4-8 4 8"/>
+      <path d="M4 13h6"/>
+      <circle cx="18" cy="12" r="3"/>
+      <path d="M21 9v6"/>
+    </svg>`,
+    category: "Text",
+    tags: ["case", "sensitive", "text", "format", "letters"],
+    description:
+      "Case-sensitive icon used to indicate text input respects case distinctions.",
+  },
+  {
+    name: "case-upper",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m3 15 4-8 4 8"/>
+      <path d="M4 13h6"/>
+      <path d="M15 11h4.5a2 2 0 0 1 0 4H15V7h4a2 2 0 0 1 0 4"/>
+    </svg>`,
+    category: "Text",
+    tags: ["case", "upper", "text", "caps", "formatting"],
+    description:
+      "Uppercase text icon indicating capital letters or uppercase formatting.",
+  },
+  {
+    name: "cast",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6"/>
+      <path d="M2 12a9 9 0 0 1 8 8"/>
+      <path d="M2 16a5 5 0 0 1 4 4"/>
+      <line x1="2" x2="2.01" y1="20" y2="20"/>
+    </svg>`,
+    category: "Media",
+    tags: ["cast", "stream", "broadcast", "wifi", "device"],
+    description:
+      "Cast icon used for screen mirroring or streaming media to devices.",
+  },
+  // DATE & TIME
+
+  {
+    name: "calendar",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M11 14h1v4"/>
+      <path d="M16 2v4"/>
+      <path d="M3 10h18"/>
+      <path d="M8 2v4"/>
+      <rect x="3" y="4" width="18" height="18" rx="2"/>
+    </svg>`,
+    category: "Date & Time",
+    tags: ["calendar", "date", "event", "schedule", "day", "planner"],
+    description: "Basic calendar icon used for dates and scheduling.",
+  },
+  {
+    name: "calendar-off",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4.2 4.2A2 2 0 0 0 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 1.82-1.18"/>
+      <path d="M21 15.5V6a2 2 0 0 0-2-2H9.5"/>
+      <path d="M16 2v4"/>
+      <path d="M3 10h7"/>
+      <path d="M21 10h-5.5"/>
+      <path d="m2 2 20 20"/>
+    </svg>`,
+    category: "Date & Time",
+    tags: ["calendar", "off", "disabled", "unavailable", "hidden"],
+    description:
+      "Calendar icon with a slash, representing disabled or hidden dates.",
+  },
+  {
+    name: "calendar-sync",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M11 10v4h4"/>
+      <path d="m11 14 1.535-1.605a5 5 0 0 1 8 1.5"/>
+      <path d="M16 2v4"/>
+      <path d="m21 18-1.535 1.605a5 5 0 0 1-8-1.5"/>
+      <path d="M21 22v-4h-4"/>
+      <path d="M21 8.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h4.3"/>
+      <path d="M3 10h4"/>
+      <path d="M8 2v4"/>
+    </svg>`,
+    category: "Date & Time",
+    tags: ["calendar", "sync", "refresh", "update", "events"],
+    description:
+      "Calendar with sync arrows, used to indicate synchronization of events.",
+  },
+  {
+    name: "calendar-arrow-up",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m14 18 4-4 4 4"/>
+      <path d="M16 2v4"/>
+      <path d="M18 22v-8"/>
+      <path d="M21 11.343V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h9"/>
+      <path d="M3 10h18"/>
+      <path d="M8 2v4"/>
+    </svg>`,
+    category: "Date & Time",
+    tags: ["calendar", "upload", "arrow", "event", "up", "schedule"],
+    description:
+      "Calendar icon with upward arrow, suggesting event promotion or upload.",
+  },
+  {
+    name: "calendar-arrow-down",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m14 18 4 4 4-4"/>
+      <path d="M16 2v4"/>
+      <path d="M18 14v8"/>
+      <path d="M21 11.354V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7.343"/>
+      <path d="M3 10h18"/>
+      <path d="M8 2v4"/>
+    </svg>`,
+    category: "Date & Time",
+    tags: ["calendar", "download", "arrow", "event", "down", "reminder"],
+    description:
+      "Calendar icon with downward arrow, indicating event sync or download.",
+  },
+  {
+    name: "calendar-check",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 2v4"/>
+      <path d="M16 2v4"/>
+      <path d="M21 14V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"/>
+      <path d="M3 10h18"/>
+      <path d="m16 20 2 2 4-4"/>
+    </svg>`,
+    category: "Date & Time",
+    tags: ["calendar", "check", "confirmed", "event", "done"],
+    description:
+      "Calendar icon with checkmark, used to mark confirmed or completed events.",
+  },
+  {
+    name: "calendar-clock",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16 14v2.2l1.6 1"/>
+      <path d="M16 2v4"/>
+      <path d="M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5"/>
+      <path d="M3 10h5"/>
+      <path d="M8 2v4"/>
+      <circle cx="16" cy="16" r="6"/>
+    </svg>`,
+    category: "Date & Time",
+    tags: ["calendar", "time", "clock", "reminder", "alarm"],
+    description:
+      "Calendar with clock overlay, representing scheduled time or reminders.",
+  },
+  {
+    name: "calendar-days",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 2v4"/>
+      <path d="M16 2v4"/>
+      <rect width="18" height="18" x="3" y="4" rx="2"/>
+      <path d="M3 10h18"/>
+      <path d="M8 14h.01"/>
+      <path d="M12 14h.01"/>
+      <path d="M16 14h.01"/>
+      <path d="M8 18h.01"/>
+      <path d="M12 18h.01"/>
+      <path d="M16 18h.01"/>
+    </svg>`,
+    category: "Date & Time",
+    tags: ["calendar", "days", "month", "grid", "planner"],
+    description:
+      "Calendar with dots representing active days or scheduled items.",
+  },
+  {
+    name: "calendar-heart",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 10h18V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7"/>
+      <path d="M8 2v4"/>
+      <path d="M16 2v4"/>
+      <path d="M21.29 14.7a2.43 2.43 0 0 0-2.65-.52c-.3.12-.57.3-.8.53l-.34.34-.35-.34a2.43 2.43 0 0 0-2.65-.53c-.3.12-.56.3-.79.53-.95.94-1 2.53.2 3.74L17.5 22l3.6-3.55c1.2-1.21 1.14-2.8.19-3.74Z"/>
+    </svg>`,
+    category: "Date & Time",
+    tags: ["calendar", "heart", "love", "valentine", "special date"],
+    description:
+      "Calendar with heart icon, used for romantic or meaningful dates.",
+  },
+  {
+    name: "calendar-minus",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16 19h6"/>
+      <path d="M16 2v4"/>
+      <path d="M21 15V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8.5"/>
+      <path d="M3 10h18"/>
+      <path d="M8 2v4"/>
+    </svg>`,
+    category: "Date & Time",
+    tags: ["calendar", "minus", "remove", "delete", "event"],
+    description:
+      "Calendar icon with minus sign, representing event removal or exclusion.",
+  },
+  {
+    name: "calendar-plus",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16 19h6"/>
+      <path d="M16 2v4"/>
+      <path d="M19 16v6"/>
+      <path d="M21 12.598V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8.5"/>
+      <path d="M3 10h18"/>
+      <path d="M8 2v4"/>
+    </svg>`,
+    category: "Date & Time",
+    tags: ["calendar", "plus", "add", "new", "event"],
+    description:
+      "Calendar with plus sign, used to add new events or reminders.",
+  },
+  {
+    name: "calendar-search",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16 2v4"/>
+      <path d="M21 11.75V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7.25"/>
+      <path d="m22 22-1.875-1.875"/>
+      <path d="M3 10h18"/>
+      <path d="M8 2v4"/>
+      <circle cx="18" cy="18" r="3"/>
+    </svg>`,
+    category: "Date & Time",
+    tags: ["calendar", "search", "find", "event", "lookup"],
+    description: "Calendar with search icon to find events or availability.",
+  },
+  {
+    name: "calendar-x",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 2v4"/>
+      <path d="M16 2v4"/>
+      <path d="M21 13V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h8"/>
+      <path d="M3 10h18"/>
+      <path d="m17 22 5-5"/>
+      <path d="m17 17 5 5"/>
+    </svg>`,
+    category: "Date & Time",
+    tags: ["calendar", "cancel", "x", "remove", "event"],
+    description:
+      "Calendar with an X icon, indicating event cancellation or rejection.",
   },
 
   // ===== HEALTH & MEDICAL ICONS (20) =====
-
-  {
-    name: "heart-pulse",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5"/>
-    <path d="M12 5L8 21l4-7 4 7-4-16"/>
-  </svg>`,
-    category: "Health & Medical",
-    tags: ["heart", "pulse", "heartbeat", "cardiology", "vital"],
-    description: "Heart with pulse or vital signs",
-  },
-  {
-    name: "pill",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M10.5 20.5 21 10a3.5 3.5 0 0 0-5-5l-10.5 10.5a3.5 3.5 0 1 0 5 5Z"/>
-    <path d="M8.5 8.5 15 15"/>
-  </svg>`,
-    category: "Health & Medical",
-    tags: ["pill", "medicine", "medication", "pharmacy", "treatment"],
-    description: "Medical pill or medication",
-  },
 
   {
     name: "hospital",
@@ -636,70 +1295,7 @@ const expandedIcons = [
     tags: ["microscope", "laboratory", "research", "science", "analysis"],
     description: "Laboratory microscope",
   },
-  {
-    name: "dna",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M2 15c6.667-6 13.333 0 20-6"/>
-    <path d="M9 22c6.667-6 13.333 0 20-6"/>
-    <path d="M2 9c6.667 6 13.333 0 20 6"/>
-    <path d="M9 2c6.667 6 13.333 0 20 6"/>
-  </svg>`,
-    category: "Health & Medical",
-    tags: ["dna", "genetics", "biology", "helix", "science"],
-    description: "DNA double helix structure",
-  },
-  {
-    name: "virus",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9L21 3z"/>
-    <path d="M7.5 8 10 5.5"/>
-    <path d="M14 16.5 16.5 19"/>
-    <path d="M8.5 16.5 5 13"/>
-    <path d="M16.5 7.5 13 11"/>
-  </svg>`,
-    category: "Health & Medical",
-    tags: ["virus", "infection", "pathogen", "disease", "medical"],
-    description: "Virus or pathogen",
-  },
-  {
-    name: "wheelchair",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="12" cy="5" r="1"/>
-    <path d="M9 20a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/>
-    <path d="M6 8h2l2 4"/>
-    <path d="M16 8h3.5a2 2 0 0 1 1.6 3.2L19 14"/>
-    <path d="M14 8v8"/>
-    <path d="M14 8h1"/>
-  </svg>`,
-    category: "Health & Medical",
-    tags: ["wheelchair", "accessibility", "disability", "mobility", "medical"],
-    description: "Wheelchair for mobility assistance",
-  },
-  {
-    name: "test-tube",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M14.5 2a.5.5 0 0 1 .5.5v6.5"/>
-    <path d="M8.5 2a.5.5 0 0 0-.5.5v6.5"/>
-    <path d="M8.5 2h6"/>
-    <path d="M9 9l6 11a2 2 0 0 1-2 3H11a2 2 0 0 1-2-3l6-11"/>
-    <circle cx="12" cy="16" r="1"/>
-  </svg>`,
-    category: "Health & Medical",
-    tags: ["test-tube", "laboratory", "chemistry", "experiment", "science"],
-    description: "Laboratory test tube",
-  },
-  {
-    name: "x-ray",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M21 2H3v20h18V2Z"/>
-    <path d="M7 8h6v8H7z"/>
-    <path d="M7 12h6"/>
-    <path d="M10 8v8"/>
-  </svg>`,
-    category: "Health & Medical",
-    tags: ["x-ray", "medical", "imaging", "bones", "diagnosis"],
-    description: "Medical X-ray imaging",
-  },
+
   {
     name: "first-aid",
     svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -903,36 +1499,6 @@ const expandedIcons = [
     description: "Gaming controller or gamepad",
   },
   {
-    name: "dice",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <rect width="12" height="12" x="2" y="10" rx="2" ry="2"/>
-    <path d="M17.92 14H20a2 2 0 0 0 1.92-2.5l-2.5-8A2 2 0 0 0 17.5 2H8.08a2 2 0 0 0-1.92 1.5L4.5 11.5A2 2 0 0 0 6.42 14"/>
-    <path d="M8 6h.01"/>
-    <path d="M16 6h.01"/>
-    <path d="M12 6h.01"/>
-    <path d="M12 10h.01"/>
-    <path d="M12 14h.01"/>
-    <path d="M16 10h.01"/>
-    <path d="M16 14h.01"/>
-    <path d="M8 10h.01"/>
-    <path d="M8 14h.01"/>
-  </svg>`,
-    category: "Entertainment",
-    tags: ["dice", "game", "random", "luck", "gambling"],
-    description: "Gaming dice",
-  },
-  {
-    name: "puzzle",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M19.439 7.85c-.049.322-.059.648-.026.975.056.506.194.995.357 1.47.388.955.337 2.043-.069 2.958-.16.373-.404.66-.741.97-.046.133-.096.266-.147.4-.044.119-.094.232-.145.343-.667 1.512-1.344 3.02-2.011 4.531-.287.646-.649 1.28-1.15 1.738-.501.458-1.19.635-1.859.635-1.14 0-2.199-.613-2.793-1.534-.297-.459-.52-.963-.728-1.469-.286-.695-.566-1.392-.848-2.087-.283-.694-.566-1.389-.85-2.083-.142-.347-.284-.694-.426-1.041-.093-.224-.186-.448-.279-.672-.094-.224-.187-.449-.28-.673-.048-.116-.095-.232-.142-.348L8.5 9.5"/>
-    <path d="M8.5 2.5c0-1.38 1.12-2.5 2.5-2.5S13.5 1.12 13.5 2.5 12.38 5 11 5 8.5 3.88 8.5 2.5"/>
-    <path d="M12.5 16.5c0 1.38-1.12 2.5-2.5 2.5S7.5 17.88 7.5 16.5 8.62 14 10 14s2.5 1.12 2.5 2.5"/>
-  </svg>`,
-    category: "Entertainment",
-    tags: ["puzzle", "jigsaw", "game", "problem", "solve"],
-    description: "Puzzle piece or jigsaw",
-  },
-  {
     name: "trophy",
     svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <line x1="8" y1="21" x2="16" y2="21"/>
@@ -944,19 +1510,6 @@ const expandedIcons = [
     category: "Entertainment",
     tags: ["trophy", "award", "winner", "achievement", "prize"],
     description: "Trophy or award",
-  },
-  {
-    name: "theater",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M2 16.1A5 5 0 0 1 5.9 20M6.3 20.9a10 10 0 0 1 11.4 0"/>
-    <path d="M6.9 20.1A7 7 0 0 1 17.1 20M15.7 20.9C15.6 21 15.4 21 15.3 21c-.2 0-.5 0-.7-.1"/>
-    <path d="M9 12h6"/>
-    <path d="M4 9h16"/>
-    <circle cx="12" cy="6" r="4"/>
-  </svg>`,
-    category: "Entertainment",
-    tags: ["theater", "drama", "performance", "stage", "acting"],
-    description: "Theater or drama performance",
   },
   {
     name: "art-palette",
@@ -981,18 +1534,6 @@ const expandedIcons = [
     category: "Entertainment",
     tags: ["paintbrush", "art", "painting", "brush", "creative"],
     description: "Paintbrush for art",
-  },
-  {
-    name: "guitar",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M10 2v20C10 24 8 24 8 22V2c0-2 2-2 2 0Z"/>
-    <path d="M8 8a4 4 0 1 1-8 0 4 4 0 1 1 8 0"/>
-    <path d="M12 8h10"/>
-    <circle cx="20" cy="8" r="2"/>
-  </svg>`,
-    category: "Entertainment",
-    tags: ["guitar", "music", "instrument", "string", "acoustic"],
-    description: "Guitar musical instrument",
   },
   {
     name: "piano",
@@ -1070,21 +1611,7 @@ const expandedIcons = [
     tags: ["bag", "shopping", "purchase", "carry", "store"],
     description: "Shopping bag for carrying items",
   },
-  {
-    name: "store",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M3 7V5c0-1.1.9-2 2-2h2"/>
-    <path d="M17 3h2c1.1 0 2 .9 2 2v2"/>
-    <path d="M21 17v2c0 1.1-.9 2-2 2h-2"/>
-    <path d="M7 21H5c-1.1 0-2-.9-2-2v-2"/>
-    <path d="M8 7v10"/>
-    <path d="M16 7v10"/>
-    <path d="M8 17h8"/>
-  </svg>`,
-    category: "Shopping",
-    tags: ["store", "shop", "retail", "business", "commerce"],
-    description: "Retail store or shop",
-  },
+
   {
     name: "gift",
     svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1207,17 +1734,7 @@ const expandedIcons = [
     tags: ["video", "camera", "call", "conference", "meeting"],
     description: "Represents video calls or video recording",
   },
-  {
-    name: "voicemail",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="6" cy="12" r="4"/>
-      <circle cx="18" cy="12" r="4"/>
-      <line x1="6" y1="16" x2="18" y2="16"/>
-    </svg>`,
-    category: "Communication",
-    tags: ["voicemail", "message", "audio", "recording", "phone"],
-    description: "Represents voicemail messages",
-  },
+
   {
     name: "inbox",
     svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1259,17 +1776,7 @@ const expandedIcons = [
     tags: ["contact", "person", "user", "add", "profile"],
     description: "Represents adding or managing contacts",
   },
-  {
-    name: "broadcast",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M5 16V9a7 7 0 0 1 14 0v7"/>
-      <path d="M3.29 8.71a1.5 1.5 0 0 1 2.12 0L12 15.29l6.59-6.58a1.5 1.5 0 0 1 2.12 2.12l-8 8a1 1 0 0 1-1.42 0l-8-8a1.5 1.5 0 0 1 0-2.12Z"/>
-    </svg>`,
-    category: "Communication",
-    tags: ["broadcast", "signal", "transmission", "announce", "spread"],
-    description:
-      "Represents broadcasting or transmitting to multiple recipients",
-  },
+
   {
     name: "phone-incoming",
     svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1302,17 +1809,6 @@ const expandedIcons = [
     category: "Communication",
     tags: ["chat", "message", "add", "new", "create"],
     description: "Represents creating new messages or conversations",
-  },
-  {
-    name: "message-square-plus",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-      <line x1="12" y1="8" x2="12" y2="16"/>
-      <line x1="8" y1="12" x2="16" y2="12"/>
-    </svg>`,
-    category: "Communication",
-    tags: ["message", "add", "new", "create", "comment"],
-    description: "Represents adding new messages or comments",
   },
   {
     name: "mail-open",
@@ -1366,16 +1862,7 @@ const expandedIcons = [
     tags: ["headphones", "audio", "listen", "music", "sound"],
     description: "Represents headphones or audio listening devices",
   },
-  {
-    name: "megaphone",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M3 11 22 2l-9 19-2-10-10-2z"/>
-      <path d="M11 12 5 6"/>
-    </svg>`,
-    category: "Communication",
-    tags: ["megaphone", "announce", "broadcast", "loud", "speaker"],
-    description: "Represents announcements or broadcasting messages",
-  },
+
   {
     name: "signal",
     svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1424,16 +1911,7 @@ const expandedIcons = [
   },
 
   // ===== TECHNOLOGY ICONS (32) =====
-  {
-    name: "computer",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <rect width="14" height="8" x="2" y="3" rx="2" ry="2"/>
-      <path d="m20 3-1.5 1.5M8 21l8 0M12 17l0 4"/>
-    </svg>`,
-    category: "Technology",
-    tags: ["desktop", "pc", "workstation", "monitor", "device"],
-    description: "Desktop computer or PC workstation",
-  },
+
   {
     name: "laptop",
     svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1455,9 +1933,7 @@ const expandedIcons = [
   },
   {
     name: "bluetooth",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="m7 7 10 10-5 5V2l5 5L7 17"/>
-    </svg>`,
+    svg_code: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 7 10 10-5 5V2l5 5L7 17"/></svg>`,
     category: "Technology",
     tags: ["bluetooth", "wireless", "connectivity", "pairing", "device"],
     description: "Bluetooth wireless connectivity",
@@ -1664,18 +2140,6 @@ const expandedIcons = [
     description: "Webcam or video camera device",
   },
   {
-    name: "gamepad",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M6 11.5a2.5 2.5 0 0 1 5 0v1a2.5 2.5 0 0 1-5 0Z"/>
-      <path d="M13 11.5a2.5 2.5 0 0 1 5 0v1a2.5 2.5 0 0 1-5 0Z"/>
-      <path d="M3 3h18v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/>
-      <path d="M5 21a2 2 0 0 1-2-2v-2h18v2a2 2 0 0 1-2 2"/>
-    </svg>`,
-    category: "Technology",
-    tags: ["gamepad", "controller", "gaming", "joystick", "console"],
-    description: "Gaming controller or gamepad",
-  },
-  {
     name: "external-link",
     svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M15 3h6v6"/>
@@ -1686,16 +2150,7 @@ const expandedIcons = [
     tags: ["external-link", "link", "url", "web", "navigation"],
     description: "External link or web navigation",
   },
-  {
-    name: "code",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="16,18 22,12 16,6"/>
-      <polyline points="8,6 2,12 8,18"/>
-    </svg>`,
-    category: "Technology",
-    tags: ["code", "programming", "development", "software", "coding"],
-    description: "Programming code or software development",
-  },
+
   {
     name: "terminal",
     svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1717,24 +2172,7 @@ const expandedIcons = [
     tags: ["api", "interface", "programming", "development", "integration"],
     description: "Application Programming Interface (API)",
   },
-  {
-    name: "bug",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M8 2h8"/>
-      <path d="M8 6h8"/>
-      <path d="M6 10h4"/>
-      <path d="M14 10h4"/>
-      <path d="M6 14h4"/>
-      <path d="M14 14h4"/>
-      <path d="M6 18h4"/>
-      <path d="M14 18h4"/>
-      <path d="M21 12c.5 0 .9-.4.9-1s-.4-1-.9-1"/>
-      <path d="M3 12c-.5 0-.9-.4-.9-1s.4-1 .9-1"/>
-    </svg>`,
-    category: "Technology",
-    tags: ["bug", "error", "debugging", "issue", "problem"],
-    description: "Software bug or error debugging",
-  },
+
   {
     name: "shield",
     svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1915,19 +2353,7 @@ const expandedIcons = [
     tags: ["presentation", "screen", "display", "meeting", "demo"],
     description: "Presentation or demo screen",
   },
-  {
-    name: "handshake",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M11 17a4 4 0 0 1-8 0V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2Z"/>
-      <path d="M16.7 13H19a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H7"/>
-      <path d="M 7 17h0.01"/>
-      <path d="M 21 17h0.01"/>
-      <path d="M11 8V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-4"/>
-    </svg>`,
-    category: "Business",
-    tags: ["handshake", "deal", "agreement", "partnership", "cooperation"],
-    description: "Handshake or business agreement",
-  },
+
   {
     name: "building",
     svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1969,16 +2395,85 @@ const expandedIcons = [
     description: "Wallet or money storage",
   },
   {
-    name: "coins",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="8" cy="8" r="6"/>
-      <path d="M18.09 10.37A6 6 0 1 1 10.34 18"/>
-      <path d="M7 6h1v4"/>
-      <path d="M16.71 13.88.2.2"/>
+    name: "bottle-wine",
+    svg_code: `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10 3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a6 6 0 0 0 1.2 3.6l.6.8A6 6 0 0 1 17 13v8a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1v-8a6 6 0 0 1 1.2-3.6l.6-.8A6 6 0 0 0 10 5z"/>
+      <path d="M17 13h-4a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h4"/>
     </svg>`,
-    category: "Business",
-    tags: ["coins", "money", "currency", "finance", "payment"],
-    description: "Coins or currency",
+    category: "Objects",
+    tags: ["wine", "bottle", "drink", "alcohol", "beverage"],
+    description:
+      "A wine bottle icon, representing drinks or alcoholic beverages.",
+  },
+  {
+    name: "bow-arrow",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17 3h4v4"/>
+      <path d="M18.575 11.082a13 13 0 0 1 1.048 9.027 1.17 1.17 0 0 1-1.914.597L14 17"/>
+      <path d="M7 10 3.29 6.29a1.17 1.17 0 0 1 .6-1.91 13 13 0 0 1 9.03 1.05"/>
+      <path d="M7 14a1.7 1.7 0 0 0-1.207.5l-2.646 2.646A.5.5 0 0 0 3.5 18H5a1 1 0 0 1 1 1v1.5a.5.5 0 0 0 .854.354L9.5 18.207A1.7 1.7 0 0 0 10 17v-2a1 1 0 0 0-1-1z"/>
+      <path d="M9.707 14.293 21 3"/>
+    </svg>`,
+    category: "Weapons",
+    tags: ["bow", "arrow", "weapon", "archery", "hunt"],
+    description:
+      "Bow and arrow icon, representing archery, weapons, or targeting.",
+  },
+  {
+    name: "brick-wall",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect width="18" height="18" x="3" y="3" rx="2"/>
+      <path d="M12 9v6"/>
+      <path d="M16 15v6"/>
+      <path d="M16 3v6"/>
+      <path d="M3 15h18"/>
+      <path d="M3 9h18"/>
+      <path d="M8 15v6"/>
+      <path d="M8 3v6"/>
+    </svg>`,
+    category: "Objects",
+    tags: ["brick", "wall", "structure", "construction", "barrier"],
+    description:
+      "Brick wall icon, symbolizing construction, structure, or defense.",
+  },
+  {
+    name: "briefcase-medical",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 11v4"/>
+      <path d="M14 13h-4"/>
+      <path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+      <path d="M18 6v14"/>
+      <path d="M6 6v14"/>
+      <rect width="20" height="14" x="2" y="6" rx="2"/>
+    </svg>`,
+    category: "Medical",
+    tags: ["medical", "briefcase", "doctor", "emergency", "health"],
+    description:
+      "Medical briefcase icon used to represent healthcare or emergency kits.",
+  },
+  {
+    name: "brush",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m11 10 3 3"/>
+      <path d="M6.5 21A3.5 3.5 0 1 0 3 17.5a2.62 2.62 0 0 1-.708 1.792A1 1 0 0 0 3 21z"/>
+      <path d="M9.969 17.031 21.378 5.624a1 1 0 0 0-3.002-3.002L6.967 14.031"/>
+    </svg>`,
+    category: "Tools",
+    tags: ["brush", "paint", "art", "design", "draw"],
+    description: "Brush icon representing painting, drawing, or design tools.",
+  },
+  {
+    name: "brush-cleaning",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m16 22-1-4"/>
+      <path d="M19 13.99a1 1 0 0 0 1-1V12a2 2 0 0 0-2-2h-3a1 1 0 0 1-1-1V4a2 2 0 0 0-4 0v5a1 1 0 0 1-1 1H6a2 2 0 0 0-2 2v.99a1 1 0 0 0 1 1"/>
+      <path d="M5 14h14l1.973 6.767A1 1 0 0 1 20 22H4a1 1 0 0 1-.973-1.233z"/>
+      <path d="m8 22 1-4"/>
+    </svg>`,
+    category: "Tools",
+    tags: ["brush", "clean", "tools", "maintenance", "cleaning"],
+    description:
+      "Cleaning brush icon, symbolizing cleaning tasks or tools maintenance.",
   },
   {
     name: "bank",
@@ -2059,19 +2554,6 @@ const expandedIcons = [
     description: "Office building or workplace",
   },
   {
-    name: "meeting",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M8 21h8"/>
-      <path d="M12 17v4"/>
-      <path d="M4 13a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2"/>
-      <path d="M8 7h8"/>
-      <path d="M8 11h4"/>
-    </svg>`,
-    category: "Business",
-    tags: ["meeting", "conference", "presentation", "screen", "business"],
-    description: "Business meeting or conference",
-  },
-  {
     name: "analytics",
     svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M3 3v18h18"/>
@@ -2122,18 +2604,6 @@ const expandedIcons = [
     category: "Business",
     tags: ["contract", "document", "agreement", "legal", "business"],
     description: "Business contract or legal document",
-  },
-  {
-    name: "profit",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/>
-      <path d="M12 18V6"/>
-      <path d="M8 5h8"/>
-      <path d="M8 19h8"/>
-    </svg>`,
-    category: "Business",
-    tags: ["profit", "money", "earnings", "revenue", "income"],
-    description: "Profit or financial earnings",
   },
 
   // ===== NAVIGATION ICONS (32) =====
@@ -2187,6 +2657,62 @@ const expandedIcons = [
     tags: ["arrow", "down", "bottom", "descend", "decrease"],
     description: "Navigate down or go to bottom",
   },
+  {
+    name: "book-user",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M15 13a3 3 0 1 0-6 0"/>
+        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/>
+        <circle cx="12" cy="8" r="2"/>
+      </svg>`,
+    category: "Education",
+    tags: ["book", "user", "profile", "reader", "account", "education"],
+    description:
+      "Book with user icon, representing personal learning or reader profile.",
+  },
+  {
+    name: "book-x",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m14.5 7-5 5"/>
+        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/>
+        <path d="m9.5 7 5 5"/>
+      </svg>`,
+    category: "Education",
+    tags: ["book", "x", "remove", "cancel", "error", "education"],
+    description:
+      "Book with an 'X' mark, symbolizing deletion or invalid content.",
+  },
+  {
+    name: "bookmark",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/>
+      </svg>`,
+    category: "Objects",
+    tags: ["bookmark", "save", "favorite", "reading", "marker"],
+    description: "Standard bookmark icon used to mark or save content.",
+  },
+  {
+    name: "bookmark-check",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2Z"/>
+        <path d="m9 10 2 2 4-4"/>
+      </svg>`,
+    category: "Objects",
+    tags: ["bookmark", "check", "done", "save", "confirm"],
+    description:
+      "Bookmark with a checkmark, indicating confirmed or saved content.",
+  },
+  {
+    name: "bookmark-x",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2Z"/>
+        <path d="m14.5 7.5-5 5"/>
+        <path d="m9.5 7.5 5 5"/>
+      </svg>`,
+    category: "Objects",
+    tags: ["bookmark", "x", "remove", "delete", "cancel"],
+    description: "Bookmark with an 'X', representing removal or rejection.",
+  },
+
   {
     name: "menu",
     svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -2443,15 +2969,6 @@ const expandedIcons = [
   },
 
   {
-    name: "wishlist-heart",
-    svg_code: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M50 75L25 50C20 45 20 35 25 30C30 25 40 25 45 30L50 35L55 30C60 25 70 25 75 30C80 35 80 45 75 50L50 75Z" stroke="currentColor" stroke-width="2" fill="none"/>
-        </svg>`,
-    category: "E-commerce",
-    tags: ["wishlist", "favorite", "heart", "like", "save"],
-  },
-
-  {
     name: "mobile-shopping",
     svg_code: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="30" y="15" width="40" height="70" rx="5" stroke="currentColor" stroke-width="2" fill="none"/>
@@ -2463,19 +2980,6 @@ const expandedIcons = [
         </svg>`,
     category: "E-commerce",
     tags: ["mobile", "shopping", "phone", "app", "online"],
-  },
-
-  {
-    name: "inventory-stock",
-    svg_code: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="20" y="40" width="60" height="40" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
-          <rect x="25" y="35" width="50" height="40" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
-          <rect x="30" y="30" width="40" height="40" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
-          <rect x="40" y="45" width="20" height="3" fill="currentColor"/>
-          <rect x="40" y="52" width="15" height="3" fill="currentColor"/>
-        </svg>`,
-    category: "E-commerce",
-    tags: ["inventory", "stock", "warehouse", "storage", "boxes"],
   },
 
   {
@@ -2520,46 +3024,7 @@ const expandedIcons = [
     category: "Education",
     tags: ["calculator", "math", "calculation", "numbers", "education"],
   },
-  {
-    name: "school-building",
-    svg_code: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="20" y="40" width="60" height="40" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
-      <path d="M15 40L50 20L85 40" stroke="currentColor" stroke-width="2" fill="none"/>
-      <rect x="45" y="60" width="10" height="20" stroke="currentColor" stroke-width="2" fill="none"/>
-      <rect x="30" y="50" width="8" height="8" stroke="currentColor" stroke-width="2" fill="none"/>
-      <rect x="62" y="50" width="8" height="8" stroke="currentColor" stroke-width="2" fill="none"/>
-      <circle cx="50" cy="35" r="3" fill="currentColor"/>
-    </svg>`,
-    category: "Education",
-    tags: ["school", "building", "education", "institution", "learning"],
-  },
 
-  {
-    name: "teacher",
-    svg_code: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="50" cy="30" r="12" stroke="currentColor" stroke-width="2" fill="none"/>
-      <path d="M30 70C30 58 38 50 50 50C62 50 70 58 70 70V80H30V70Z" stroke="currentColor" stroke-width="2" fill="none"/>
-      <path d="M70 60L85 50V70L70 60Z" stroke="currentColor" stroke-width="2" fill="none"/>
-      <circle cx="45" cy="25" r="2" fill="currentColor"/>
-      <circle cx="55" cy="25" r="2" fill="currentColor"/>
-      <path d="M45 35C45 40 50 40 55 35" stroke="currentColor" stroke-width="2" fill="none"/>
-    </svg>`,
-    category: "Education",
-    tags: ["teacher", "educator", "instructor", "education", "teaching"],
-  },
-  {
-    name: "student",
-    svg_code: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="50" cy="30" r="12" stroke="currentColor" stroke-width="2" fill="none"/>
-      <path d="M30 70C30 58 38 50 50 50C62 50 70 58 70 70V80H30V70Z" stroke="currentColor" stroke-width="2" fill="none"/>
-      <rect x="35" y="55" width="30" height="20" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
-      <path d="M40 60H60" stroke="currentColor" stroke-width="2"/>
-      <path d="M40 65H55" stroke="currentColor" stroke-width="2"/>
-      <path d="M40 70H50" stroke="currentColor" stroke-width="2"/>
-    </svg>`,
-    category: "Education",
-    tags: ["student", "learner", "pupil", "education", "studying"],
-  },
   {
     name: "backpack",
     svg_code: `<svg viewBox="0 0 100 100" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
@@ -2693,13 +3158,12 @@ const expandedIcons = [
 </svg>`,
   },
   {
-    name: "bluetooth",
+    name: "bluetooth-connected",
     category: "technology",
     tags: ["bluetooth", "wireless", "connection", "device"],
     description: "Icono de Bluetooth",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <polyline points="6.5 6.5 17.5 17.5 12 23 12 1 17.5 6.5 6.5 17.5"/>
-</svg>`,
+    svg_code: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 7 10 10-5 5V2l5 5L7 17"/><line x1="18" x2="21" y1="12" y2="12"/><line x1="3" x2="6" y1="12" y2="12"/>
+    </svg>`,
   },
   {
     name: "cpu",
@@ -2835,10 +3299,7 @@ const expandedIcons = [
     category: "communication",
     tags: ["notification", "alert", "bell", "reminder"],
     description: "Icono de notificación",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-  <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-</svg>`,
+    svg_code: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></svg>`,
   },
   {
     name: "at-sign",
@@ -2851,6 +3312,31 @@ const expandedIcons = [
 </svg>`,
   },
   {
+    name: "volume-1",
+    category: "communication",
+    tags: ["sound", "audio", "volume", "speaker"],
+    description: "Icono de volumen bajo",
+    svg_code: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="M16 9a5 5 0 0 1 0 6"/></svg>`,
+  },
+  {
+    name: "volume-2",
+    category: "communication",
+    tags: ["sound", "audio", "volume", "speaker"],
+    description: "Icono de volumen alto",
+    svg_code: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/></svg>
+`,
+  },
+  {
+    name: "volume-2",
+    category: "communication",
+    tags: ["sound", "audio", "volume", "speaker"],
+    description: "Icono de volumen alto",
+    svg_code: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><line x1="22" x2="16" y1="9" y2="15"/><line x1="16" x2="22" y1="9" y2="15"/></svg>
+"/></svg>
+`,
+  },
+
+  {
     name: "volume-2",
     category: "communication",
     tags: ["sound", "audio", "volume", "speaker"],
@@ -2860,7 +3346,21 @@ const expandedIcons = [
   <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
 </svg>`,
   },
-
+  {
+    name: "volume-1",
+    category: "communication",
+    tags: ["sound", "audio", "volume", "speaker"],
+    description: "Icono de volumen bajo",
+    svg_code: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="M16 9a5 5 0 0 1 0 6"/></svg>`,
+  },
+  {
+    name: "volume-off",
+    category: "communication",
+    tags: ["sound", "audio", "volume", "speaker"],
+    description: "Icono de volumen apagado",
+    svg_code: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 9a5 5 0 0 1 .95 2.293"/><path d="M19.364 5.636a9 9 0 0 1 1.889 9.96"/><path d="m2 2 20 20"/><path d="m7 7-.587.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298V11"/><path d="M9.828 4.172A.686.686 0 0 1 11 4.657v.686"/></svg>
+`,
+  },
   // BUSINESS (10 iconos)
   {
     name: "briefcase",
@@ -3117,17 +3617,6 @@ const expandedIcons = [
     category: "Medical",
     tags: ["heart", "health", "cardiology", "medical", "care"],
   },
-  {
-    name: "stethoscope",
-    svg_code: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M25 25C25 20 30 15 35 15C40 15 45 20 45 25V45C45 55 40 60 35 60C30 60 25 55 25 45V25Z" stroke="currentColor" stroke-width="2" fill="none"/>
-      <path d="M55 25C55 20 60 15 65 15C70 15 75 20 75 25V45C75 55 70 60 65 60C60 60 55 55 55 45V25Z" stroke="currentColor" stroke-width="2" fill="none"/>
-      <path d="M35 60C35 70 45 80 55 80H65C75 80 85 70 85 60" stroke="currentColor" stroke-width="2" fill="none"/>
-      <circle cx="85" cy="60" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
-    </svg>`,
-    category: "Medical",
-    tags: ["stethoscope", "doctor", "examination", "medical", "diagnosis"],
-  },
 
   {
     name: "thermometer",
@@ -3155,19 +3644,6 @@ const expandedIcons = [
     tags: ["medical", "cross", "hospital", "first-aid", "health"],
   },
 
-  {
-    name: "syringe-injection",
-    svg_code: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="20" y="45" width="50" height="10" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
-      <path d="M70 45V55L80 50L70 45Z" stroke="currentColor" stroke-width="2" fill="none"/>
-      <rect x="25" y="47" width="40" height="6" fill="currentColor"/>
-      <path d="M15 40L25 45L25 55L15 60" stroke="currentColor" stroke-width="2" fill="none"/>
-      <path d="M30 40L30 60" stroke="currentColor" stroke-width="2"/>
-      <path d="M40 40L40 60" stroke="currentColor" stroke-width="2"/>
-    </svg>`,
-    category: "Medical",
-    tags: ["syringe", "injection", "vaccine", "medical", "needle"],
-  },
   {
     name: "medical-bag",
     svg_code: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -3285,18 +3761,7 @@ const expandedIcons = [
   },
 
   // FOOD & DINING (15 iconos)
-  {
-    name: "pizza",
-    category: "Food & Dining",
-    tags: ["pizza", "food", "restaurant", "dining", "italian"],
-    description: "Icono de pizza",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M12 2l8 20-8-4-8 4z"/>
-  <circle cx="10" cy="8" r="1"/>
-  <circle cx="14" cy="10" r="1"/>
-  <circle cx="12" cy="14" r="1"/>
-</svg>`,
-  },
+
   {
     name: "coffee",
     category: "Food & Dining",
@@ -3397,16 +3862,11 @@ const expandedIcons = [
   // TRAVEL & TRANSPORTATION (15 iconos)
 
   {
-    name: "car",
+    name: "car-front",
     category: "Travel & Transportation",
     tags: ["car", "vehicle", "transport", "automotive", "drive"],
     description: "Icono de automóvil",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9L18.4 10c-.4-.8-1.2-1.3-2.1-1.3H7.7c-.9 0-1.7.5-2.1 1.3l-2.1 1.1c-.8.2-1.5 1-1.5 1.9v3c0 .6.4 1 1 1h2"/>
-  <circle cx="7" cy="17" r="2"/>
-  <path d="M9 17h6"/>
-  <circle cx="17" cy="17" r="2"/>
-</svg>`,
+    svg_code: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 8-2 2-1.5-3.7A2 2 0 0 0 15.646 5H8.4a2 2 0 0 0-1.903 1.257L5 10 3 8"/><path d="M7 14h.01"/><path d="M17 14h.01"/><rect width="18" height="8" x="3" y="10" rx="2"/><path d="M5 18v2"/><path d="M19 18v2"/></svg>`,
   },
 
   {
@@ -3701,20 +4161,7 @@ const expandedIcons = [
   },
 
   // TOOLS & UTILITIES (10 iconos)
-  {
-    name: "screwdriver",
-    category: "Tools & Utilities",
-    tags: ["screwdriver", "tool", "repair", "fix", "maintenance"],
-    description: "Icono de destornillador",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M10 13l4 4"/>
-  <path d="M16 16l3-3"/>
-  <path d="M20 2l2 2-3 3"/>
-  <path d="M15 6l3 3"/>
-  <path d="M8 12l-2-2"/>
-  <path d="M2 22l2-2"/>
-</svg>`,
-  },
+
   {
     name: "toolbox",
     category: "Tools & Utilities",
@@ -3738,18 +4185,6 @@ const expandedIcons = [
   <line x1="20" y1="4" x2="8.12" y2="15.88"/>
   <line x1="14.47" y1="14.48" x2="20" y2="20"/>
   <line x1="8.12" y1="8.12" x2="12" y2="12"/>
-</svg>`,
-  },
-
-  {
-    name: "flashlight",
-    category: "Tools & Utilities",
-    tags: ["flashlight", "light", "tool", "utility", "illuminate"],
-    description: "Icono de linterna",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M8 2v3h8V2"/>
-  <path d="M16 7H8l1 12h6z"/>
-  <circle cx="12" cy="11" r="1"/>
 </svg>`,
   },
 
@@ -3865,16 +4300,7 @@ const expandedIcons = [
   <line x1="1" y1="10" x2="23" y2="10"/>
 </svg>`,
   },
-  {
-    name: "piggy-bank",
-    category: "Finance & Banking",
-    tags: ["piggy", "bank", "savings", "finance", "money"],
-    description: "Icono de alcancía",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M19 5c-1.5 0-2.8 1.4-3 2.5l-1.2-1.2c-.8-.8-2-.8-2.8 0L10 8.3l-4.8-4.8c-.8-.8-2-.8-2.8 0-.8.8-.8 2 0 2.8l4.8 4.8L5.2 13c-.8.8-.8 2 0 2.8.8.8 2 .8 2.8 0L10 13.8l2-2c.8-.8.8-2 0-2.8l-1.2-1.2c1.1-.2 2.5-1.5 2.5-3 0-1.7 1.3-3 3-3s3 1.3 3 3-1.3 3-3 3z"/>
-  <line x1="16" y1="5" x2="16" y2="5"/>
-</svg>`,
-  },
+
   {
     name: "chart-line",
     category: "Finance & Banking",
@@ -4006,14 +4432,7 @@ const expandedIcons = [
     category: "Hobbies & Leisure",
     tags: ["book", "reading", "hobby", "leisure", "literature"],
     description: "Icono de libro para lectura",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-  <path d="M6 8h2"/>
-  <path d="M6 12h2"/>
-  <path d="M16 8h2"/>
-  <path d="M16 12h2"/>
-</svg>`,
+    svg_code: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M16 12h2"/><path d="M16 8h2"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/><path d="M6 12h2"/><path d="M6 8h2"/></svg>`,
   },
 
   {
@@ -4026,6 +4445,84 @@ const expandedIcons = [
   <circle cx="12" cy="13" r="4"/>
   <circle cx="12" cy="13" r="1"/>
 </svg>`,
+  },
+
+  {
+    name: "bracers",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5c0 1.1.9 2 2 2h1"/>
+      <path d="M16 21h1a2 2 0 0 0 2-2v-5c0-1.1.9-2 2-2a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1"/>
+    </svg>`,
+    category: "Objects",
+    tags: ["bracers", "symbols", "syntax", "punctuation", "programming"],
+    description:
+      "Curly braces symbol often used in programming and code syntax.",
+  },
+  {
+    name: "brackets",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16 3h3a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-3"/>
+      <path d="M8 21H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h3"/>
+    </svg>`,
+    category: "Symbols",
+    tags: ["brackets", "code", "punctuation", "syntax", "programming"],
+    description: "Square brackets symbol used in coding and logical grouping.",
+  },
+  {
+    name: "bomb",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="13" r="9"/>
+      <path d="M14.35 4.65 16.3 2.7a2.41 2.41 0 0 1 3.4 0l1.6 1.6a2.4 2.4 0 0 1 0 3.4l-1.95 1.95"/>
+      <path d="m22 2-1.5 1.5"/>
+    </svg>`,
+    category: "Objects",
+    tags: ["bomb", "explosion", "danger", "weapon", "conflict"],
+    description: "Icon of a cartoon-style bomb with a lit fuse.",
+  },
+  {
+    name: "bone",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17 10c.7-.7 1.69 0 2.5 0a2.5 2.5 0 1 0 0-5 .5.5 0 0 1-.5-.5 2.5 2.5 0 1 0-5 0c0 .81.7 1.8 0 2.5l-7 7c-.7.7-1.69 0-2.5 0a2.5 2.5 0 0 0 0 5c.28 0 .5.22.5.5a2.5 2.5 0 1 0 5 0c0-.81-.7-1.8 0-2.5Z"/>
+    </svg>`,
+    category: "Objects",
+    tags: ["bone", "skeleton", "dog", "anatomy", "biology"],
+    description: "Stylized bone icon, often associated with anatomy or pets.",
+  },
+  {
+    name: "book-a",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/>
+      <path d="m8 13 4-7 4 7"/>
+      <path d="M9.1 11h5.7"/>
+    </svg>`,
+    category: "Education",
+    tags: ["book", "reading", "letter", "study", "school"],
+    description: "Book with the letter A, representing learning or education.",
+  },
+  {
+    name: "book-text",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/>
+      <path d="M8 11h8"/>
+      <path d="M8 7h6"/>
+    </svg>`,
+    category: "Education",
+    tags: ["book", "text", "reading", "literature", "document"],
+    description:
+      "Book with lines of text, representing reading or documentation.",
+  },
+  {
+    name: "book-type",
+    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10 13h4"/>
+      <path d="M12 6v7"/>
+      <path d="M16 8V6H8v2"/>
+      <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/>
+    </svg>`,
+    category: "Education",
+    tags: ["book", "type", "text", "letter", "typography"],
+    description:
+      "Book with typography elements, ideal for writing or publishing.",
   },
 
   {
@@ -4547,13 +5044,7 @@ const expandedIcons = [
     category: "Travel & Transportation",
     tags: ["bicycle", "bike", "cycle", "transport", "exercise"],
     description: "Bicicleta",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <circle cx="18.5" cy="17.5" r="3.5"/>
-  <circle cx="5.5" cy="17.5" r="3.5"/>
-  <circle cx="15" cy="5" r="1"/>
-  <path d="M12 17.5L14 15.5 10.5 12 14 8.5 16 9.5"/>
-  <path d="M17.5 17.5L19 16"/>
-</svg>`,
+    svg_code: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18.5" cy="17.5" r="3.5"/><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="15" cy="5" r="1"/><path d="M12 17.5V14l-3-3 4-3 2 3h2"/></svg>`,
   },
   {
     name: "luggage",
@@ -4583,9 +5074,7 @@ const expandedIcons = [
     category: "interface",
     tags: ["check", "success", "done", "complete", "confirm"],
     description: "Icono de verificación/éxito",
-    svg_code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <polyline points="20,6 9,17 4,12"/>
-</svg>`,
+    svg_code: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>`,
   },
   {
     name: "refresh",
@@ -5136,58 +5625,35 @@ const expandedIcons = [
     category: "Technology",
     tags: ["battery", "power", "energy", "charge", "device"],
     description: "Icono de batería",
-    svg_code: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M 91.67 58.33 L 91.67 41.67" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <rect x="8.33" y="25" width="66.67" height="50" rx="8.33" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>`,
+    svg_code: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M 22 14 L 22 10"/><rect x="2" y="6" width="16" height="12" rx="2"/></svg>`,
   },
   {
     name: "battery-full",
     category: "Technology",
     tags: ["battery", "full", "charged", "power", "energy"],
     description: "Icono de batería llena",
-    svg_code: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M41.67 41.67v16.67" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M58.33 41.67v16.67" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M91.67 58.33v-16.67" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M25 41.67v16.67" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <rect x="8.33" y="25" width="66.67" height="50" rx="8.33" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>`,
+    svg_code: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 10v4"/><path d="M14 10v4"/><path d="M22 14v-4"/><path d="M6 10v4"/><rect x="2" y="6" width="16" height="12" rx="2"/></svg>`,
   },
   {
     name: "battery-charging",
     category: "Technology",
     tags: ["battery", "charging", "power", "energy", "plug"],
     description: "Icono de batería cargando",
-    svg_code: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="m45.83 29.17-12.5 20.83h16.67l-12.5 20.83" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M61.9 25H66.67a8.33 8.33 0 0 1 8.33 8.33v33.33a8.33 8.33 0 0 1-8.33 8.33h-12.23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M91.67 58.33v-16.67" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M21.42 75H16.67a8.33 8.33 0 0 1-8.33-8.33V33.33a8.33 8.33 0 0 1 8.33-8.33h12.23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>`,
+    svg_code: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m11 7-3 5h4l-3 5"/><path d="M14.856 6H16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.935"/><path d="M22 14v-4"/><path d="M5.14 18H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2.936"/></svg>`,
   },
   {
     name: "battery-low",
     category: "Technology",
     tags: ["battery", "low", "power", "energy", "warning"],
     description: "Icono de batería baja",
-    svg_code: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M91.67 58.33v-16.67" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M25 58.33v-16.67" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <rect x="8.33" y="25" width="66.67" height="50" rx="8.33" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>`,
+    svg_code: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 14v-4"/><path d="M6 14v-4"/><rect x="2" y="6" width="16" height="12" rx="2"/></svg>`,
   },
   {
     name: "battery-medium",
     category: "Technology",
     tags: ["battery", "medium", "power", "energy", "half"],
     description: "Icono de batería media",
-    svg_code: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M41.67 58.33v-16.67" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M91.67 58.33v-16.67" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M25 58.33v-16.67" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <rect x="8.33" y="25" width="66.67" height="50" rx="8.33" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>`,
+    svg_code: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14v-4"/><path d="M22 14v-4"/><path d="M6 14v-4"/><rect x="2" y="6" width="16" height="12" rx="2"/></svg>`,
   },
 
   // DEVICES & HARDWARE
@@ -5260,43 +5726,28 @@ const expandedIcons = [
     category: "AI",
     tags: ["bot", "robot", "ai", "artificial", "intelligence"],
     description: "Icono de robot o bot",
-    svg_code: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M50 33.33V16.67H33.33" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <rect width="66.67" height="50" x="16.67" y="33.33" rx="8.33" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M8.33 58.33h8.33" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M83.33 58.33h8.33" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M62.5 54.17v8.33" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M37.5 54.17v8.33" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>`,
+    svg_code: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>`,
+  },
+  {
+    name: "database-zap",
+    category: "AI",
+    tags: ["bot", "message", "chat", "ai", "conversation"],
+    description: "Icono de bot con mensaje",
+    svg_code: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6V2H8"/><path d="m8 18-4 4V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2Z"/><path d="M2 12h2"/><path d="M9 11v2"/><path d="M15 11v2"/><path d="M20 12h2"/></svg>`,
   },
   {
     name: "bot-message-square",
     category: "AI",
     tags: ["bot", "message", "chat", "ai", "conversation"],
     description: "Icono de bot con mensaje",
-    svg_code: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M50 25V8.33H33.33" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="m33.33 75-16.67 16.67V33.33c0-4.17 4.17-8.33 8.33-8.33h50c4.17 0 8.33 4.17 8.33 8.33v33.33c0 4.17-4.17 8.33-8.33 8.33Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M8.33 50h8.33" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M37.5 45.83v8.33" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M62.5 45.83v8.33" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M83.33 50h8.33" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>`,
+    svg_code: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6V2H8"/><path d="m8 18-4 4V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2Z"/><path d="M2 12h2"/><path d="M9 11v2"/><path d="M15 11v2"/><path d="M20 12h2"/></svg>`,
   },
   {
     name: "bot-off",
     category: "AI",
     tags: ["bot", "off", "disabled", "ai", "inactive"],
     description: "Icono de bot desactivado",
-    svg_code: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M56.96 33.33H75c4.17 0 8.33 4.17 8.33 8.33v18.06" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M8.33 58.33h8.33" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M83.33 58.33h8.33" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M91.67 91.67 8.33 8.33" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M33.33 33.33H25c-4.17 0-8.33 4.17-8.33 8.33v33.33c0 4.17 4.17 8.33 8.33 8.33h50c4.17 0 8.33-4.17 8.33-8.33v-8.33c0-3.54-2.44-6.54-5.89-7.44" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M37.5 54.17v8.33" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M40.28 16.67H50v9.72" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>`,
+    svg_code: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.67 8H18a2 2 0 0 1 2 2v4.33"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M22 22 2 2"/><path d="M8 8H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 1.414-.586"/><path d="M9 13v2"/><path d="M9.67 4H12v2.33"/></svg>`,
   },
 
   // FINANCE
@@ -5455,11 +5906,7 @@ const expandedIcons = [
     category: "Technology",
     tags: ["bluetooth", "off", "disabled", "wireless", "connection"],
     description: "Icono de Bluetooth desactivado",
-    svg_code: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="m70.83 70.83-20.83 20.83V50l-20.83 20.83" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="m8.33 8.33 83.33 83.33" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M60.42 39.58 70.83 29.17l-20.83-20.83v18.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>`,
+    svg_code: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m17 17-5 5V12l-5 5"/><path d="m2 2 20 20"/><path d="M14.5 9.5 17 7l-5-5v4.5"/></svg>`,
   },
 
   // DATABASE EXTENDED
@@ -5557,17 +6004,6 @@ const expandedIcons = [
     </svg>`,
   },
 
-  // CRYPTOCURRENCY
-  {
-    name: "bitcoin",
-    category: "Finance",
-    tags: ["bitcoin", "cryptocurrency", "crypto", "money", "digital"],
-    description: "Icono de Bitcoin",
-    svg_code: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M49.03 79.54c20.52 3.61 25.58-25.1 5.07-28.72m-5.07 28.72L23.58 75.2m24.58 4.34-1.45 8.21m6.51-36.94c20.52 3.62 25.58-25.1 5.06-28.72m-5.06 28.72-16.42-2.89m21.48-25.83L31.21 17.75m24.58 4.34 1.45-8.21M31.17 84.85l13.02-73.86" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>`,
-  },
-
   // TIME & ALARMS
   {
     name: "alarm-clock",
@@ -5604,19 +6040,7 @@ const expandedIcons = [
     category: "Development",
     tags: ["bug", "error", "debug", "insect", "problem"],
     description: "Icono de bug para debugging",
-    svg_code: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="m33.33 8.33 7.83 7.83" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M58.83 16.17 66.67 8.33" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M37.5 29.71v-4.17a12.51 12.51 0 1 1 25 0v4.17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M50 83.33c-13.75 0-25-11.25-25-25v-12.5a16.67 16.67 0 0 1 16.67-16.67h16.67A16.67 16.67 0 0 1 75 45.83v12.5c0 13.75-11.25 25-25 25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M50 83.33v-37.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M27.21 37.5C19.17 36.67 12.5 29.58 12.5 20.83" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M25 54.17H8.33" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M12.5 87.5c0-8.75 7.08-16.25 15.83-16.67" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M87.4 20.83c0 8.75-6.67 15.83-14.58 16.67" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M91.67 54.17H75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M71.67 70.83c8.75.42 15.83 7.92 15.83 16.67" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>`,
+    svg_code: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 2 1.88 1.88"/><path d="M14.12 3.88 16 2"/><path d="M9 7.13v-1a3.003 3.003 0 1 1 6 0v1"/><path d="M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3c0 3.3-2.7 6-6 6"/><path d="M12 20v-9"/><path d="M6.53 9C4.6 8.8 3 7.1 3 5"/><path d="M6 13H2"/><path d="M3 21c0-2.1 1.7-3.9 3.8-4"/><path d="M20.97 5c0 2.1-1.6 3.8-3.5 4"/><path d="M22 13h-4"/><path d="M17.2 17c2.1.1 3.8 1.9 3.8 4"/></svg>`,
   },
 
   // SURVEILLANCE
@@ -5731,34 +6155,14 @@ const expandedIcons = [
     category: "Development",
     tags: ["bug", "off", "disabled", "debug", "error"],
     description: "Icono de bug desactivado",
-    svg_code: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M62.5 29.71V25a12.5 12.5 0 0 0-21.42-8.75L33.33 8.33" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M58.83 16.17 66.67 8.33" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M91.67 54.17h-16.67v-8.33a16.67 16.67 0 0 0-16.67-16.67H53.13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M87.4 20.83c0 8.75-6.67 15.83-14.58 16.67" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="m8.33 8.33 83.33 83.33" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M32.08 32.08A16.67 16.67 0 0 0 25 45.83v12.5a25 25 0 0 0 46.38 13.04" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M50 83.33v-33.33" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M25 54.17H8.33" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M12.5 87.5c0-8.75 7.08-16.25 15.83-16.67" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>`,
+    svg_code: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7.13V6a3 3 0 0 0-5.14-2.1L8 2"/><path d="M14.12 3.88 16 2"/><path d="M22 13h-4v-2a4 4 0 0 0-4-4h-1.3"/><path d="M20.97 5c0 2.1-1.6 3.8-3.5 4"/><path d="m2 2 20 20"/><path d="M7.7 7.7A4 4 0 0 0 6 11v3a6 6 0 0 0 11.13 3.13"/><path d="M12 20v-8"/><path d="M6 13H2"/><path d="M3 21c0-2.1 1.7-3.9 3.8-4"/></svg>`,
   },
   {
     name: "bug-play",
     category: "Development",
     tags: ["bug", "play", "debug", "run", "test"],
     description: "Icono de bug con play para debugging",
-    svg_code: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M53.19 89.68a2.08 2.08 0 0 1-3.19-1.77V53.73a2.08 2.08 0 0 1 3.19-1.77L77.66 67.3a4.17 4.17 0 0 1 0 7.07z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M58.83 16.17 66.67 8.33" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M75 45.83a16.67 16.67 0 0 0-16.67-16.67h-16.67A16.67 16.67 0 0 0 25 45.83v12.5a25.42 25.42 0 0 0 8.33 18.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M87.4 20.83c0 8.75-6.67 15.83-14.58 16.67" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M12.5 87.5c0-8.75 7.08-16.25 15.83-16.67" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M25 54.17H8.33" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M27.21 37.5C19.17 33.33 12.5 29.58 12.5 20.83" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="m33.33 8.33 7.83 7.83" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M37.5 29.71v-4.17a12.51 12.51 0 1 1 25 0v4.17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>`,
+    svg_code: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.765 21.522a.5.5 0 0 1-.765-.424v-8.196a.5.5 0 0 1 .765-.424l5.878 3.674a1 1 0 0 1 0 1.696z"/><path d="M14.12 3.88 16 2"/><path d="M18 11a4 4 0 0 0-4-4h-4a4 4 0 0 0-4 4v3a6.1 6.1 0 0 0 2 4.5"/><path d="M20.97 5c0 2.1-1.6 3.8-3.5 4"/><path d="M3 21c0-2.1 1.7-3.9 3.8-4"/><path d="M6 13H2"/><path d="M6.53 9C4.6 8.8 3 7.1 3 5"/><path d="m8 2 1.88 1.88"/><path d="M9 7.13v-1a3.003 3.003 0 1 1 6 0v1"/></svg>`,
   },
 
   // AUDIO VARIANTS

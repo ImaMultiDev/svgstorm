@@ -62,7 +62,7 @@ export default function SearchBar({
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           placeholder={placeholder}
-          className={`w-full pl-12 pr-12 py-4 text-lg bg-white border-2 rounded-2xl shadow-lg transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-100 ${
+          className={`w-full pl-12 pr-12 py-4 text-lg text-gray-900 placeholder:text-gray-500 bg-white border-2 rounded-2xl shadow-lg transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-100 ${
             isFocused
               ? "border-blue-500 shadow-blue-100/50 shadow-2xl"
               : "border-gray-200 hover:border-gray-300"

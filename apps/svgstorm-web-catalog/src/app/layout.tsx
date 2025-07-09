@@ -17,11 +17,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className="bg-gradient-to-br from-gray-50 to-blue-50/30 min-h-screen">
+      <body className="bg-gradient-to-br from-gray-50 to-blue-50/30 min-h-screen overflow-x-hidden">
         <SVGStormProvider apiBaseUrl="https://overflowing-adaptation-production.up.railway.app">
-          <Navbar />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
+          <div className="flex flex-col min-h-screen">
+            <Navbar />
+            <main className="flex-1 overflow-x-hidden">{children}</main>
+            <Footer />
+          </div>
         </SVGStormProvider>
       </body>
     </html>

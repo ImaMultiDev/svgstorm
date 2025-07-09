@@ -59,7 +59,7 @@ export default function IconCard({
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onClick={handleClick}
-        className={`relative group cursor-pointer bg-white rounded-2xl border-2 border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden ${className}`}
+        className={`relative group cursor-pointer bg-white rounded-2xl border-2 border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-72 sm:h-80 ${className}`}
       >
         {/* Gradient overlay on hover */}
         <motion.div
@@ -68,60 +68,75 @@ export default function IconCard({
           className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 z-0"
         />
 
-        <div className="relative z-10 p-6">
+        <div className="relative z-10 p-4 sm:p-6 h-full flex flex-col">
           {/* Icon preview */}
-          <div className="flex items-center justify-center h-20 mb-4">
+          <div className="flex items-center justify-center h-16 sm:h-20 mb-3 sm:mb-4 flex-shrink-0">
             {isLoading ? (
               <div className="w-8 h-8 border-2 border-blue-500 border-t-transparent rounded-full animate-spin" />
             ) : iconSvg ? (
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
-                className="w-12 h-12 text-gray-700 group-hover:text-blue-600 transition-colors duration-300"
+                className="w-10 h-10 sm:w-12 sm:h-12 text-gray-700 group-hover:text-blue-600 transition-colors duration-300"
                 dangerouslySetInnerHTML={{ __html: iconSvg }}
               />
             ) : (
-              <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400">
-                <Icon name="image" size={24} />
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400">
+                <Icon name="image" size={20} />
               </div>
             )}
           </div>
 
           {/* Icon name */}
-          <h3 className="text-lg font-semibold text-gray-900 mb-2 text-center group-hover:text-blue-600 transition-colors duration-300">
+          <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 text-center group-hover:text-blue-600 transition-colors duration-300 line-clamp-1 flex-shrink-0">
             {icon.name}
           </h3>
 
           {/* Category badge */}
           {icon.category && (
-            <div className="flex justify-center mb-3">
-              <span className="inline-flex items-center px-3 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">
+            <div className="flex justify-center mb-2 sm:mb-3 flex-shrink-0">
+              <span className="inline-flex items-center px-2 sm:px-3 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">
                 {icon.category}
               </span>
             </div>
           )}
 
-          {/* Description */}
-          {icon.description && (
-            <p className="text-sm text-gray-600 text-center mb-3 line-clamp-2">
-              {icon.description}
-            </p>
-          )}
+          {/* Description - Flex grow para ocupar espacio disponible, máximo 1 línea */}
+          <div className="flex-grow mb-2 sm:mb-3 min-h-0">
+            {icon.description && (
+              <p
+                className="text-xs sm:text-sm text-gray-600 text-center text-muted-foreground line-clamp-1 overflow-hidden"
+                style={{
+                  display: "-webkit-box",
+                  WebkitLineClamp: 1,
+                  WebkitBoxOrient: "vertical",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  whiteSpace: "normal",
+                }}
+              >
+                {icon.description}
+              </p>
+            )}
+          </div>
 
-          {/* Tags */}
+          {/* Tags - si hay más tags de los que caben en una línea, mostrar +N al principio */}
           {icon.tags.length > 0 && (
-            <div className="flex flex-wrap gap-1 justify-center mb-3">
-              {icon.tags.slice(0, 3).map((tag, index) => (
-                <span
-                  key={index}
-                  className="inline-flex items-center px-2 py-1 text-xs bg-gray-100 text-gray-600 rounded-md"
-                >
-                  {tag}
-                </span>
-              ))}
+            <div className="flex gap-1 justify-center mb-2 sm:mb-3 flex-shrink-0 overflow-hidden whitespace-nowrap">
+              {icon.tags
+                .slice(0, icon.tags.length > 3 ? 2 : 3)
+                .map((tag, index) => (
+                  <span
+                    key={index}
+                    className="inline-flex items-center px-1.5 sm:px-2 py-0.5 sm:py-1 text-xs bg-gray-100 text-gray-600 rounded-md"
+                  >
+                    {tag}
+                  </span>
+                ))}
+
               {icon.tags.length > 3 && (
-                <span className="inline-flex items-center px-2 py-1 text-xs bg-gray-100 text-gray-600 rounded-md">
-                  +{icon.tags.length - 3}
+                <span className="inline-flex items-center px-1.5 sm:px-2 py-0.5 sm:py-1 text-xs bg-gray-100 text-gray-600 rounded-md">
+                  +{icon.tags.length - 2}
                 </span>
               )}
             </div>
@@ -131,13 +146,13 @@ export default function IconCard({
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 10 }}
-            className="flex justify-center space-x-2"
+            className="flex justify-center space-x-2 flex-shrink-0"
           >
-            <button className="p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-200 text-sm">
-              <Icon name="eye" size={16} color="white" />
+            <button className="p-1.5 sm:p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-200 text-sm">
+              <Icon name="eye" size={14} color="white" />
             </button>
-            <button className="p-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 transition-colors duration-200 text-sm">
-              <Icon name="copy" size={16} />
+            <button className="p-1.5 sm:p-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 transition-colors duration-200 text-sm">
+              <Icon name="copy" size={14} />
             </button>
           </motion.div>
         </div>
@@ -189,11 +204,11 @@ export default function IconCard({
         {/* Icon info */}
         <div className="flex-1 min-w-0">
           <div className="flex items-center space-x-3 mb-2">
-            <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
+            <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-300 line-clamp-1 flex-1">
               {icon.name}
             </h3>
             {icon.category && (
-              <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">
+              <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full flex-shrink-0">
                 {icon.category}
               </span>
             )}
@@ -201,7 +216,7 @@ export default function IconCard({
 
           {/* Description */}
           {icon.description && (
-            <p className="text-sm text-gray-600 mb-2 line-clamp-1">
+            <p className="text-sm text-gray-600 mb-2 line-clamp-2 overflow-hidden">
               {icon.description}
             </p>
           )}

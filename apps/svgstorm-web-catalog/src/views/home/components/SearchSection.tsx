@@ -11,7 +11,7 @@ export default function SearchSection({ onSearch }: SearchSectionProps) {
   return (
     <div
       id="search-section"
-      className="sticky bg-gradient-to-r from-slate-100 via-white to-slate-100 border-b border-slate-200/50 top-0 z-60 shadow-lg"
+      className="sticky bg-gradient-to-r from-slate-100 via-white to-slate-100 border-b border-slate-200/50 top-0 z-40 shadow-lg"
     >
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-20">
