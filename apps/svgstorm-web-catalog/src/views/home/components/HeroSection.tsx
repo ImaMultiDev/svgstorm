@@ -19,9 +19,9 @@ export default function HeroSection() {
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.4 }}
-        className="absolute top-20 left-4 sm:-left-20 lg:top-5 lg:-left-10 opacity-15 pointer-events-none"
+        className="absolute -top-5 -left-5 lg:top-5 lg:-left-10 opacity-15 pointer-events-none"
       >
-        <div className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-[360px] lg:h-[360px] xl:w-[420px] xl:h-[420px] flex items-center opacity-60 justify-center -rotate-15">
+        <div className="w-48 h-48 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-[360px] lg:h-[360px] xl:w-[420px] xl:h-[420px] flex items-center opacity-30 lg:opacity-60 justify-center -rotate-15">
           <Image
             src="/SVGStorm_logo.svg"
             alt="SVGStorm Logo"
